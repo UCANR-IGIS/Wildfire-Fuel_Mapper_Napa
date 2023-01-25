@@ -1,0 +1,644 @@
+.legend {
+    display: inline-block;
+    -webkit-transform: scale(2, 1);
+    -moz-transform: scale(2, 1);
+    -ms-transform: scale(2, 1);
+    --transform: scale(2, 1);
+    transform: scale(2, 1);
+    padding-right: 10px;
+    padding-left: 8px;
+}
+
+._1 {
+    opacity: 0.25
+}
+
+._2 {
+    opacity: 0.50
+}
+
+._3 {
+    opacity: 0.75
+}
+
+._4 {
+    opacity: 1
+}
+
+/*Vegetation Styles 'Forest LifeForm'*/
+
+.legend.lifeform.Forest_Sliver {
+    color: #5ee683;
+}
+
+.legend.lifeform.Water {
+    color: #004DA8;
+}
+
+.legend.lifeform.Herbaceous_Wetland {
+    color: #4DB7D1;
+}
+
+.legend.lifeform.Riparian_Shrub {
+    color: #00F2C6;
+}
+
+.legend.lifeform.Developed {
+    color: #828282;
+}
+
+.legend.lifeform.Mixed_Conifer-Hardwood_Forest {
+    color: #f765a7;
+}
+
+.legend.lifeform.Hardwood_Forest {
+    color: #00a12b;
+}
+
+.legend.lifeform.Conifer_Forest {
+    color: #004a14;
+}
+
+.legend.lifeform.Barrren_and_Sparsely_Vegetated {
+    color: #ffffff;
+}
+
+.legend.lifeform.Riparian_Forest {
+    color: #00B392;
+}
+
+.legend.lifeform.Agriculture {
+    color: #8c41ba;
+}
+
+.legend.lifeform.Aquatic_Vegetation {
+    color: #2FB2DE;
+}
+
+.legend.lifeform.Shrub {
+    color: #995D1D;
+}
+
+.legend.lifeform.Non-native_Shrub {
+    color: #DCFA16;
+}
+
+.legend.lifeform.Non-native_Forest {
+    color: #f5b318;
+}
+
+.legend.lifeform.Herbaceous {
+    color: #E6CE9C;
+}
+
+/*MapClass Vegetation Styles*/
+.legend.mapclass.abgr {
+    color: #3DC90A;
+}
+
+.legend.mapclass.acma {
+    color: #9FA681;
+}
+
+.legend.mapclass.adfa {
+    color: #D19F58;
+}
+
+.legend.mapclass.aeca {
+    color: #526941;
+}
+
+.legend.mapclass.aler {
+    color: #F5DFA6;
+}
+
+.legend.mapclass.amar {
+    color: #FCF5E3;
+}
+
+.legend.mapclass.ann_crop {
+    color: #CA47DE;
+}
+
+.legend.mapclass.ar_spp_ {
+    color: #CCA806;
+}
+
+.legend.mapclass.arba {
+    color: #BD5002;
+}
+
+.legend.mapclass.arme {
+    color: #9AC77F;
+}
+
+.legend.mapclass.arvi {
+    color: #CC7F04;
+}
+
+.legend.mapclass.bapi {
+    color: #995D1D;
+}
+
+.legend.mapclass.barren {
+    color: #FFFFFF;
+}
+
+.legend.mapclass.bluff_scr {
+    color: #99734D;
+}
+
+.legend.mapclass.ca_grass {
+    color: #E6CE9C;
+}
+
+.legend.mapclass.canu {
+    color: #FCFB9F;
+}
+
+.legend.mapclass.case {
+    color: #36CCE0;
+}
+
+.legend.mapclass.cecu {
+    color: #E3AD42;
+}
+
+.legend.mapclass.ceol {
+    color: #E6AB37;
+}
+
+.legend.mapclass.ceth {
+    color: #E6AE3E;
+}
+
+.legend.mapclass.coast_grass {
+    color: #FCEFCF;
+}
+
+.legend.mapclass.coco {
+    color: #B87844;
+}
+
+.legend.mapclass.dev {
+    color: #828282;
+}
+
+.legend.mapclass.dry_per_grass {
+    color: #E6DFAC;
+}
+
+.legend.mapclass.dune_mat {
+    color: #E8D690;
+}
+
+.legend.mapclass.erlu {
+    color: #A16908;
+}
+
+.legend.mapclass.eu_spp_ {
+    color: #93DE23;
+}
+
+.legend.mapclass.float {
+    color: #2FB2DE;
+}
+
+.legend.mapclass.for_sliv {
+    color: #004D0D;
+}
+
+.legend.mapclass.garu {
+    color: #9C4A08;
+}
+
+.legend.mapclass.hay {
+    color: #B37DA3;
+}
+
+.legend.mapclass.hemc {
+    color: #A3F711;
+}
+
+.legend.mapclass.hemn {
+    color: #04B504;
+}
+
+.legend.mapclass.hesa {
+    color: #0BA122;
+}
+
+.legend.mapclass.irr_pas {
+    color: #B54A9C;
+}
+
+.legend.mapclass.juar {
+    color: #3292CF;
+}
+
+.legend.mapclass.mar_chap {
+    color: #9E8529;
+}
+
+.legend.mapclass.marsh {
+    color: #4DB7D1;
+}
+
+.legend.mapclass.meca {
+    color: #EBE9A2;
+}
+
+.legend.mapclass.mes_chap {
+    color: #E3883D;
+}
+
+.legend.mapclass.nnf {
+    color: #00EB71;
+}
+
+.legend.mapclass.nns {
+    color: #DCFA16;
+}
+
+.legend.mapclass.node {
+    color: #73945C;
+}
+
+.legend.mapclass.nursery {
+    color: #B76FE3;
+}
+
+.legend.mapclass.orchard {
+    color: #DE83D8;
+}
+
+.legend.mapclass.per_ag {
+    color: #DB63C9;
+}
+
+.legend.mapclass.piat {
+    color: #3C9127;
+}
+
+.legend.mapclass.pil {
+    color: #91C95D;
+}
+
+.legend.mapclass.pimu {
+    color: #6DB34B;
+}
+
+.legend.mapclass.pips {
+    color: #5B8735;
+}
+
+.legend.mapclass.piqu {
+    color: #66AD47;
+}
+
+.legend.mapclass.pira {
+    color: #40DB02;
+}
+
+.legend.mapclass.pofr {
+    color: #00B392;
+}
+
+.legend.mapclass.psme {
+    color: #006100;
+}
+
+.legend.mapclass.psme-node {
+    color: #0BB505;
+}
+
+.legend.mapclass.qu_spp_ {
+    color: #874D00;
+}
+
+.legend.mapclass.quag {
+    color: #9C4600;
+}
+
+.legend.mapclass.quch {
+    color: #A35C50;
+}
+
+.legend.mapclass.qudo {
+    color: #5E6100;
+}
+
+.legend.mapclass.qudu {
+    color: #D4966A;
+}
+
+.legend.mapclass.quga {
+    color: #875600;
+}
+
+.legend.mapclass.quke {
+    color: #DE775F;
+}
+
+.legend.mapclass.qulo {
+    color: #9E4A33;
+}
+
+.legend.mapclass.quwis {
+    color: #A38107;
+}
+
+.legend.mapclass.quwit {
+    color: #615600;
+}
+
+.legend.mapclass.rip_sw_scrub {
+    color: #00F2C6;
+}
+
+.legend.mapclass.rip_sw_wood {
+    color: #00997D;
+}
+
+.legend.mapclass.rip_van_for {
+    color: #008068;
+}
+
+.legend.mapclass.rip_van_scrub {
+    color: #00D9B1;
+}
+
+.legend.mapclass.road {
+    color: #828282;
+}
+
+.legend.mapclass.ruar {
+    color: #BD6604;
+}
+
+.legend.mapclass.salt_marsh {
+    color: #64ADCC;
+}
+
+.legend.mapclass.sese {
+    color: #008717;
+}
+
+.legend.mapclass.stock {
+    color: #316BD6;
+}
+
+.legend.mapclass.tidal {
+    color: #4F77DB;
+}
+
+.legend.mapclass.todi {
+    color: #BF8630;
+}
+
+.legend.mapclass.umca {
+    color: #758060;
+}
+
+.legend.mapclass.urban {
+    color: #828282;
+}
+
+.legend.mapclass.vernal {
+    color: #71A8E3;
+}
+
+.legend.mapclass.vineyard {
+    color: #8C41BA;
+}
+
+.legend.mapclass.vineyard {
+    color: #733699;
+}
+
+.legend.mapclass.water {
+    color: #004DA8;
+}
+
+
+/*FuelModel Styles 'FuelModTxt'*/
+
+.legend.fuel.GR1 {
+    color: #F5F57B;
+}
+
+.legend.fuel.GR2 {
+    color: #EBE376;
+}
+
+.legend.fuel.GR4 {
+    color: #DCC66C;
+}
+
+.legend.fuel.GS1 {
+    color: #FAE9D5;
+}
+
+.legend.fuel.GS2 {
+    color: #E6AB8D;
+}
+
+.legend.fuel.GS3 {
+    color: #CA7253;
+}
+
+.legend.fuel.GS4 {
+    color: #AA421F;
+}
+
+.legend.fuel.NB1 {
+    color: #ffffff;
+}
+
+.legend.fuel.NB3 {
+    color: #A8A8A8;
+}
+
+.legend.fuel.NB8 {
+    color: #00C5FF;
+}
+
+.legend.fuel.NB9 {
+    color: #000000;
+}
+
+.legend.fuel.rGR2 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rGR4 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rGS1 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rGS2 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rSH1 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rSH2 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rSH3 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rSH5 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rSH7 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL1 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL2 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL3 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL5 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL6 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTL9 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTU1 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.rTU5 {
+    color: #BEE8FF;
+}
+
+.legend.fuel.SH1 {
+    color: #FFFF7F;
+}
+
+.legend.fuel.SH2 {
+    color: #FDE969;
+}
+
+.legend.fuel.SH3 {
+    color: #FAD155;
+}
+
+.legend.fuel.SH4 {
+    color: #F7BE42;
+}
+
+.legend.fuel.SH5 {
+    color: #F3A72B;
+}
+
+.legend.fuel.SH6 {
+    color: #CF7A19;
+}
+
+.legend.fuel.SH7 {
+    color: #AD5312;
+}
+
+.legend.fuel.SH9 {
+    color: #6A0000;
+}
+
+.legend.fuel.TL1 {
+    color: #DDF5E9;
+}
+
+.legend.fuel.TL2 {
+    color: #C1E1CE;
+}
+
+.legend.fuel.TL3 {
+    color: #A7CFB5;
+}
+
+.legend.fuel.TL5 {
+    color: #76A881;
+}
+
+.legend.fuel.TL6 {
+    color: #5F976A;
+}
+
+.legend.fuel.TL7 {
+    color: #4B875B;
+}
+
+.legend.fuel.TL8 {
+    color: #337645;
+}
+
+.legend.fuel.TL9 {
+    color: #1F6630;
+}
+
+.legend.fuel.TU1 {
+    color: #D7F1AF;
+}
+
+.legend.fuel.TU2 {
+    color: #BBD190;
+}
+
+.legend.fuel.TU3 {
+    color: #A3B574;
+}
+
+.legend.fuel.TU4 {
+    color: #8A9C5A;
+}
+
+.legend.fuel.TU5 {
+    color: #768242;
+}
+
+.legend.fuel.GR {
+    color: #ffee00
+}
+
+.legend.fuel.GS {
+        color: #ffaf00
+}
+
+.legend.fuel.NB {
+        color: #a8a8a8
+}
+
+.legend.fuel.SH {
+        color: #ff5600
+}
+
+.legend.fuel.FR {
+        color: #00a624
+}
+
+.legend.fuel.FS {
+        color: #0b5200
+}

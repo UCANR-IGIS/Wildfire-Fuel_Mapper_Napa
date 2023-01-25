@@ -1,0 +1,50 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+#ext_menu-0 .mbr-brand__name {
+    font-size: 16px;
+}
+
+#ext_menu-0.mbr-navbar--stuck .mbr-navbar__section {
+    background-color: #231f20;
+}
+
+#ext_menu-0 .mbr-navbar__section {
+    background: #2c2c2c;
+}
+
+#ext_menu-0 .mbr-navbar__hamburger {
+    color: #ffffff;
+}
+
+#content5-6 .mbr-header .mbr-header__text {
+    text-align: center;
+    color: #fff;
+}
+
+#content5-6 .mbr-header .mbr-header__subtext {
+    text-align: center;
+    color: #fff;
+}
+
+#content5-6 .mbr-article {
+    color: #fff;
+}
+
+.footLink {
+    color: lightcyan
+}
+
+.footLink:hover {
+    color: #60b0bb
+}
+
+.btn-warning {
+    background-color: #f15a29;
+    border-color: #f15a29;
+}
+
+.panel-default > .panel-heading {
+    background-color: #efebe4
+}

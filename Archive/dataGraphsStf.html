@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+        <meta name="description" content="">
+
+        <title>California Land Use and Ownership Portal</title>
+
+
+
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-sortable.css">
+        <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+        <link rel="stylesheet" href="assets/mobirise/css/style.css">
+        <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+        <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.alpha.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
+
+        <style>
+            html,
+            body,
+            #data{
+                padding: 0
+            }
+
+            #sidebar {
+                overflow-y: auto;
+                height: window.height();
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.8 19.8-1.415 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 40.485 60h2.83zm-5.657 0L30 52.343 22.343 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.8 19.8 1.415 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413 7.07-7.07 7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.243 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-2.828 2.83 1.414 1.414L30 23.456l1.414 1.414zM56.87 59.414L58.284 58 30 29.716 1.716 58l1.414 1.414L30 32.544l26.87 26.87z' fill='%23a3aba2' fill-opacity='0.19' fill-rule='evenodd'/%3E%3C/svg%3E")
+            }
+
+
+    </head>
+
+    <body>
+        <section id="data" class="mbr-section mbr-section--relative mbr-section--fixed-size" id1="features1-3" style="background-color: rgb(255, 255, 255);">
+            <div class="mbr-section__container container mbr-section__container--std-top-padding" style="padding-top: 136px;">
+                <div class="mbr-section__row row">
+
+                </div>
+                <div class="mbr-section__row row">
+
+                    <!-- sidebar -->
+                    <div id="sidebar" class="col-md-5 panel panel-default" role="tablist"  data-toggle="collapse">
+
+                        <div id="cdlSummary" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="CountyName" style="font-size: 150%">
+                                <span id="CountyName"></span>
+                                <a data-toggle="collapse" data-parent="#sidebar" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="CountyName">
+                                <div class="card-block">
+                                    <table id="dataTable2" class="table table-bordered table-striped">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <p>Table shows the summary statistics about the private cropland ownership in the county</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cdlLandClass" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingTwo" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebar" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Percentage of Total Private Cropland by Croptype
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="card-block" id="LandClass-Bar-Chart">
+                                </div>
+                                <div class="card-footer">
+                                    <p>Chart represents the percent of private cropland within the county that is planted in a particular type of crop</p>
+                                    <a href="#" class="card-link save-image">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cdlCumAcres" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingThree" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebar" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Cumulative Sum of Privately Owned Acres by Owner
+                            </div>
+                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="card-block" id="cum-acres-chart"></div>
+                                <div class="card-footer">
+                                    <p>Each point on this graph represents a particular property represented by the area of land grown in a particular crop that is shown on the horizontal x-axis, and the vertical y-axis represents the added acreage of each point and how it contributes to the total acreage planted in a certain type of crop in the county. The shape of the curve illustrates the contribution of varying size classes of properties to the total crop planted (a flatter curve means that larger property owners contribute more to the total cropland planted in the crop, while a steeper curve means that smaller properties contribute more to the total cropland planted in a particular crop type).  The point at the far right end of the graph illustrates the largest single planting in a particular crop type in the county which is shown on the horizontal x-axis, while the vertical y-axis shows the total acreage of land planted in that particular crop in the county. </p>
+                                    <a href="#" class="card-link save-image4">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cdlPieChart" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingFour" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebar" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Public vs. Private Ownership of County
+                            </div>
+                            <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="card-block" id="Pie-Chart"></div>
+                                <div class="card-footer">
+                                    <p>Delineates the percent of all land in the county that is privately vs publicly held.  Public land includes federal lands such as U.S. Forest Service, State Parks, and county and city lands</p>
+                                    <a href="#" class="card-link save-image2">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cdlBarChart" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingFive" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebar" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Acres and Number of Private Owners by Size Class
+                            </div>
+                            <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                                <div class="card-block" id="Bar-Chart"></div>
+                                <div class="card-footer">
+                                    <p>Figure represents the ownership structure of the county’s privately owned cropland across different size classes of properties.  It describes a) the number of property owners within a particular size class (blue), and b) the percent of total cropland acreage found in a particular size class (green).</p>
+                                    <a href="#" class="card-link save-image3">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="cdlDataTable" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingSix" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebar" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Summary Private Cropland Statistics
+                            </div>
+                            <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                                <div class="card-block">
+                                    <table id="dataTable" class="table table-bordered table-striped sortable">
+                                        <thead>
+                                            <tr>
+                                                <th>Crop</th>
+                                                <th>Total Acres</th>
+                                                <th>% Cropland</th>
+                                                <th># of Owners</th>
+                                                <th>Avg. Acres</th>
+                                                <th>Gini Coefficient</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <p>This table shows detailed statistics on the ownership characteristics of particular types of crops that are planted within the county and how much they contribute to the total area of crops planted in the county.  If a single property has multiple crops planted, it will be counted within each crop category in the number of owners. The Gini Coefficient is a measure of inequality, with higher values representing a less equal distribution of land planted in that crop type.</p>
+                                    <a href="#" class="card-link save-table">Export Table</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="sidebarGap" class="col-md-5 panel panel-default" role="tablist" data-toggle="collapse">
+                        <div id="gapSummary" class="col-md-12 card mb-2">
+                            <div class="card-header" role="tab" id="CountyNameGap" style="font-size: 150%">
+                                <a class="d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                            </div>
+                            <div id="collapseSeven" class="collapse show" role="tabpanel" aria-labelledby="CountyNameGap">
+                                <div class="card-block">
+                                    <table id="dataTableGap" class="table table-bordered table-striped">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <p>Table shows the summary statistics about the private forest and rangeland ownership in the county</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gapLandClass" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingEight" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Percentage of Total Private Forest and Rangeland by Land Class</div>
+                            <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                                <div class="card-block" id="LandClass-Bar-Chart-Gap"></div>
+                                <div class="card-footer">
+                                    <p>Chart represents the percent of private land in the county that is composed of the particular vegetation classes</p>
+                                    <a href="#" class="card-link save-image5">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="gapCumAcres" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingNine" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Cumulative Sum of Privately Owned Acres by Owner</div>
+                            <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+                                <div class="card-block" id="cum-acres-charts-Gap"></div>
+                                <div class="card-footer">
+                                    <p>Each point on this graph represents a particular property represented by the area of land in a particular vegetation class, which is shown on the horizontal x-axis. The vertical y-axis represents the added acreage of each point and how it contributes to the total acreage of a natural vegetation class in the county. The shape of the curve illustrates the contribution of varying size properties to the total amount of a vegetation class in the county (a flatter curve means that larger property owners contribute more to the total amount of that vegetation class, while a steeper curve means that smaller properties contribute more to the total area of that vegetation class in the county).  The point at the far right end of the line graph illustrates the largest acreage of that natural vegetation owned in that county, which is shown on the horizontal x-axis, while the vertical y-axis shows the total acreage of land in that natural vegetation class in the county.</p>
+                                    <a href="#" class="card-link save-image8">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="gapPieChart" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingTen" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Public vs. Private Ownership of County
+                            </div>
+                            <div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
+                                <div class="card-block" id="Pie-Chart-Gap"></div>
+                                <div class="card-footer">
+                                    <p>Delineates the percent of all land in the county that is privately vs publicly held.  Public land includes federal lands such as U.S. Forest Service, State Parks, and county and city lands.</p>
+                                    <a href="#" class="card-link save-image6">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gapBarChart" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingEleven" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Acres and Number of Private Owners by Size Class
+                            </div>
+                            <div id="collapseEleven" class="collapse" role="tabpanel" aria-labelledby="headingEleven">
+                                <div class="card-block" id="Bar-Chart-Gap"></div>
+                                <div class="card-footer">
+                                    <p>Chart represents the ownership structure of the county’s privately owned natural vegetation classes across different size classes of properties.  It describes a) the number of property owners within a particular size class (blue), and b) the percent of total private natural vegetation acreage found in a particular size class (green).</p>
+                                    <a href="#" class="card-link save-image7">Export Image</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="gapDataTable" class="col-md-12 card mb-2">
+
+                            <div class="card-header" role="tab" id="headingTwelve" style="font-size: 150%">
+                                <a class="collapsed d-block" data-toggle="collapse" data-parent="#sidebarGap" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </a>
+                                Summary Private Forest and Rangeland Statistics
+                            </div>
+                            <div id="collapseTwelve" class="collapse" role="tabpanel" aria-labelledby="headingTwelve">
+                                <div class="card-block">
+                                    <table id="dataTableGap2" class="table table-bordered table-striped sortable">
+                                        <thead>
+                                            <tr>
+                                                <th>Land Cover Class</th>
+                                                <th>Total Acres</th>
+                                                <th>% Forest and Rangeland</th>
+                                                <th># of Owners</th>
+                                                <th>Avg. Acres</th>
+                                                <th>Gini Coefficient</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <p>This table shows detailed statistics on the ownership characteristics of natural vegetation classes within the county and how much they contribute to the total area of natural vegetation in the county.  If a single property has multiple types of natural vegetation classes, it will be counted within each vegetation class in the number of owners. The Gini Coefficient is a measure of inequality, with higher values representing a less equal distribution of land planted in that natural vegetation class.</p>
+                                    <a href="#" class="card-link save-table2">Export Table</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div id="content" class="col-md-7 card mb-2">
+                        <div id="mapHeader" class="card-header navbar navbar-toggleable-md navbar-light bg-faded navbar-map" style="font-size: 150%">
+                            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="top: 1.5px;">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            Map
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent" data-intro="Use these buttons to toggle the graph sidebar and the legend and layer list on the main map." data-step="2">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a id="sidebarToggle" class="nav-link toggle-sidebar" href="#" style="padding-top: 0px; padding-bottom: 0px; line-height: 15px;">Hide Sidebar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link toggle-layers" href="#" style="padding-top: 0px; padding-bottom: 0px; line-height: 15px;">Hide Layers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link toggle-legend" href="#" style="padding-top: 0px; padding-bottom: 0px; line-height: 15px;">Show Legend</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <div id="viewDiv" style="postion: relative" data-intro="Click on a county to view the land use data." data-step="1"></div>
+                        </div>
+                        <div id="mapFooter" class="card-footer">
+                            <a id="mapReset" href="#" class="card-link">Reset Symbology</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts1-5" style="background-color: rgb(70, 70, 70);">
+            <div class="mbr-section__container container">
+                <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 10px; padding-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div style="text-align:center">
+                            <a style="color: white" href="http://ucanr.edu/">Agriculture and Natural Resources, University of California</a>
+                            <br/>
+
+                            <a style="font-size: 70%; color: white" href="http://ucanr.edu/Copyright/">©2016 Regents of the University of California</a>
+
+                            <a style="font-size: 70%; color: white" href="http://ucanr.edu/sites/anrstaff/Diversity/Affirmative_Action/Resources/Policy-related_downloads/">Nondiscrimination Statement</a>
+
+                            <a style="font-size: 70%; color: white" href="http://ucanr.edu/Accessibility/">Accessibility</a>
+
+                            <a style="font-size: 70%; color: white" href="#">Privacy Policy</a>
+
+                            <a style="font-size: 70%; color: white" href="#">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="assets/web/assets/jquery/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <meta name="description" content="">
+
+    <title>California Land Trends</title>
+
+
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-sortable.css">
+    <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+    <link rel="stylesheet" href="assets/mobirise/css/style.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+
+    <style>
+        html,
+        body,
+        #sidebar {
+            height: 100%;
+            overflow-y: scroll;
+        }
+        
+        ,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        ,
+        #toggleSidebar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 99;
+        }
+        
+        ,
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li.key {
+            float: left;
+            border-top-width: 15px;
+            border-top-style: solid;
+            width: 10%;
+            padding-left: 0;
+            padding-right: 0;
+            list-style: none;
+        }
+        
+        path {
+            stroke-width: 1px;
+            stroke: gray;
+            fill: #999;
+            cursor: pointer;
+        }
+        
+        path.q0-5 {
+            fill: #ffffd4;
+        }
+        
+        path.q1-5 {
+            fill: #fed98e;
+        }
+        
+        path.q2-5 {
+            fill: #fe9929;
+        }
+        
+        path.q3-5 {
+            fill: #d95f0e;
+        }
+        
+        path.q4-5 {
+            fill: #993404;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div id="sidebar">
+            <div id="mapCell"></div>
+    </div>
+
+    <script src="assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="js/d3-format.min.js"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="http://d3js.org/topojson.v2.min.js"></script>
+    <script src="js/colorbrewer.js"></script>
+    <script>
+        
+        var margin = {
+                top: 5,
+                left: 5,
+                bottom: 5,
+                right: 5
+            },
+            width = parseInt(d3.select('#mapCell').style('width')),
+            width = width - margin.left - margin.right,
+            mapRatio = 1.2,
+            height = width * mapRatio,
+            scale = 1750; //1430.2802418677404;
+
+        var projection = d3.geo.mercator()
+            .scale(scale)
+            .center([-119.27202166331902, 37.42148144361928]) //projection center
+            .translate([width / 2, height / 2]) //translate to center the map in view
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        //Create an SVG
+        var svg = d3.select("#mapCell").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        //Group for the map features
+        var features = svg.append("g")
+            .attr("class", "features");
+
+        //Create choropleth scale
+        var cscale;
+        var domain = [];
+
+        updateChoro("totCrop");
+
+        var totCrop;
+
+        d3.select(window).on('resize', resize);
+
+        function resize() {
+            // adjust things when the window size changes
+            width = parseInt(d3.select('#mapCell').style('width'));
+            width = width - margin.left - margin.right;
+            height = width * mapRatio;
+
+            // update projection
+            projection
+                .translate([width / 2, height / 2])
+                .scale(scale);
+
+            // resize the map container
+            svg
+                .style('width', width + 'px')
+                .style('height', height + 'px');
+
+            // resize the map
+            svg.select('.land').attr('d', path);
+            svg.selectAll('.state').attr('d', path);
+        }
+
+        function updateChoro(choro) {
+
+            d3.json("http://services.arcgis.com/0xnwbwUttaTjns4i/ArcGIS/rest/services/CalLandTrendsGap/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&returnCentroid=false&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&returnZ=false&returnM=false&sqlFormat=none&f=pgeojson", function (error, geodata) {
+                if (error) return console.log(error); //unknown error, check the console
+
+                var title;
+
+
+                if (choro == "totCrop") {
+                    totCrop = "Sum_";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [500000, 1000000, 2000000, 3000000]
+                    title = "Cropland Acres"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+                if (choro == "numOwn") {
+                    totCrop = "Count_";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [5000, 15000, 30000, 70000]
+                    title = "Number of Landowners"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+                if (choro == "pctCrop") {
+                    totCrop = "PerCropCou";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [0.006, 0.016, 0.064, 0.3]
+                    title = "Percent Cropland"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+                if (choro == "pctOwn") {
+                    totCrop = "PerOwnerCr";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [0.05, 0.1, 0.2, 0.4]
+                    title = "Percent Cropland Largest Owner Controls"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+                if (choro == "avgAcre") {
+                    totCrop = "Mean";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [15, 30, 50, 100]
+                    title = "Mean Cropland Acres"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+                if (choro == "Gini") {
+                    totCrop = "Gini";
+                    cscale = colorbrewer.RdYlGn[5]
+                    domain = [0.48, 0.61, 0.69, 0.76]
+                    title = "Gini Coefficient"
+                    document.getElementById("legend").innerHTML = "<span class = legendTitle>" + title + "</span>";
+                }
+
+                var color = d3.scale.threshold()
+                    .domain(domain)
+                    .range(cscale);
+
+                d3.select("#mapCell svg g")
+                    .selectAll("path")
+                    .remove();
+
+                //Create a path for each map feature in the data
+                features.selectAll("path")
+                    .data(geodata.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .style("fill", function (d) {
+                        return color(d.properties[totCrop]);
+                    });
+
+
+                d3.select('#legend')
+                    .selectAll('ul')
+                    .remove();
+
+                // build the map legend
+                var legend = d3.select('#legend')
+                    .append('ul')
+                    .attr('class', 'list-inline');
+
+                var keys = legend.selectAll('li.key')
+                    .data(color.range());
+
+                var legend_items = ["Low", "", "", "", "High"];
+
+                keys.enter().append('li')
+                    .attr('class', 'key')
+                    .style('border-top-color', String)
+                    .text(function (d, i) {
+                        return legend_items[i];
+                    });
+
+            });
+
+        }
+
+        function divHeight() {
+            $("#viewDiv").height($(window).height() - $("#ext_menu-0").height() - $("#contacts1-5").height());
+            $("#sidebar").height($(window).height() - $("#ext_menu-0").height() - $("#contacts1-5").height() + 40);
+        };
+
+        $(window).resize(divHeight);
+
+        // handle on click event to switch between maps
+        d3.selectAll(".m")
+            .on("click", function () {
+                var choro = this.getAttribute("value");
+                updateChoro(choro);
+            });
+
+        $(".toggle-layers").click(function () {
+            $(".esri-layer-list").toggle();
+
+        });
+
+        $(".toggle-legend").click(function () {
+            $(".esri-legend").toggle();
+
+        });
+
+        $(".toggle-sidebar").click(function () {
+            $("#sidebar").toggleClass("collapsed");
+            $("#content").toggleClass("col-md-12 col-md-8");
+
+            return false;
+        });
+    </script>
+
+</body>
+
+</html>

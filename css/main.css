@@ -1,0 +1,263 @@
+html {
+    --scrollbarBG: lightgray;
+    --thumbBG: #003c61;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 11px;
+}
+
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 1px;
+    border: 1px solid var(--scrollbarBG);
+}
+
+.indent {
+    padding-left: 5px
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+.content2 {
+    grid-area: content2;
+}
+
+.content3 {
+    grid-area: content3;
+    display: none;
+}
+
+.content4 {
+    grid-area: content4;
+    display: none;
+}
+
+.header {
+    grid-area: header;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.veg {
+    grid-area: veg;
+}
+
+.fullveg {
+    grid-area: fullveg;
+    display: none;
+}
+
+.fuel {
+    grid-area: fuel;
+}
+
+.parcel {
+    grid-area: parcel;
+}
+
+.prior {
+    grid-area: prior;
+}
+
+.report {
+    grid-area: report;
+}
+
+/*.wrapper {
+    background-color: #fff;
+    color: #444;
+}*/
+
+.wrapper {
+    display: grid;
+    grid-gap: 0em;
+    grid-template-areas:
+        "header"
+        "sidebar"
+        "parcel"
+        "content"
+        "veg"
+        "content2"
+        "fuel"
+        "prior"
+        "footer";
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 0em;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "sidebar content content";
+    height: 90.2vh
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1em;
+    grid-template-areas:
+        "parcel"
+        "veg"
+        "fuel"
+        "prior";
+}
+
+.header,
+.footer {
+    background-color: #003c61;
+    height: 25px;
+}
+
+.sidebar2 {
+    background-color: #ccc;
+    color: #444;
+}
+
+.slidecontainer {
+    width: 100%;
+    padding: 10px;
+    /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 88%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    margin-right: 10px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: rgb(0, 124, 192);
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+
+
+.divButton {
+    padding: 2px 10px;
+    border: solid #707070 1px;
+    font-family: caption;
+    font-size: 14px;
+    background: grey;
+    display: inline;
+    border-radius: 2px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F2F2F2), color-stop(1, #CFCFCF));
+    background-image: -o-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
+    background-image: -moz-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
+    background-image: -webkit-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
+    background-image: -ms-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
+    background-image: linear-gradient(to bottom, #F2F2F2 0%, #CFCFCF 100%);
+    cursor: default;
+    text-align: center;
+}
+
+.divButton:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EAF6FD), color-stop(1, #A7D8F5));
+    background-image: -o-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
+    background-image: -moz-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
+    background-image: -webkit-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
+    background-image: -ms-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
+    background-image: linear-gradient(to bottom, #EAF6FD 0%, #A7D8F5 100%);
+    border: #3c7fb1 solid 1px;
+}
+
+.divButton:active {
+    border: solid #2c628b 1px;
+    padding: 2px 9px 2px 11px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E5F4FC), color-stop(0.5, #C4E5F6), color-stop(0.51, #98D0EF), color-stop(1, #68B3DB));
+    background-image: -o-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+    background-image: -moz-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+    background-image: -webkit-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+    background-image: -ms-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+    background-image: linear-gradient(to bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+}
+
+.inActive {
+    color: lightgray;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0px;
+}
+
+.esri-legend{
+    width: auto !important
+}
+
+.esri-legend__layer-cell--info {
+    display: none !important
+}
+
+.esri-legend__service {
+    padding: 5px 10px !important
+}
+.esri-legend__layer-table--size-ramp {
+    margin: 0 !important
+}
+.ui-accordion-content-active {
+    padding: 4px 0px !important
+}
