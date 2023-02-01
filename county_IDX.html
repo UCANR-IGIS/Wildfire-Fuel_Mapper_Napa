@@ -22,12 +22,10 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
+
 </head>
 
-
-
 <body>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
         var progArea
@@ -47,8 +45,8 @@
             }
 
             $(".countyname").text(progArea);
-            $(".uppercase").text(progArea.toUpperCase());
-            $(".mbr-buttons__link").each(function () {
+
+            $(".mbr-buttons__link, .mbr-buttons__btn").each(function () {
                 var $this = $(this);
                 var _href = $this.attr("href");
                 $this.attr("href", _href + '?id=' + progArea);
@@ -56,18 +54,13 @@
 
             if (progArea == "Sonoma") {
                 link1href =
-                    "./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf"
-                link2href = 
-                    "./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
+                    "https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6?id=Napa"
 
             } else if (progArea == "Napa") {
-                link1href = "https://igis.ucanr.edu/"
-                link2href = "https://igis.ucanr.edu/"
+                link1href = "https://storymaps.arcgis.com/stories"
             }
 
-            $("#link1").attr("href", link1href)
-            $("#link2").attr("href", link2href)
-
+            $(".mbr-buttons__btn").attr("href", link1href)
         });
     </script>
 
@@ -76,27 +69,20 @@
         <div class="mbr-navbar__section mbr-section">
             <div class="mbr-section__container container">
                 <div class="mbr-navbar__container">
-                    <div class="mbr-navbar__column mbr-navbar__menu">
-                        <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-left">
-                            <div class="mbr-navbar__column">
-                                
-                                <ul
-                                    class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
-                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span><span style="color:#e05e31; font-size:20px; font-weight: 700;"> COUNTY</span></li>
-                                </ul>
-                            </div>
-                        </nav>
+                    <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
+                        <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
+                            <span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
+                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span>
+                            <!--<span class="mbr-brand__name"><a href="index.html" class="mbr-brand__name text-white">Wildfire Fuel Mapper</a></span>-->
+                        </span>
                     </div>
-    
+                    <div class="mbr-brand--inline" style="color:white"><span class="countyname"></span> County </div>
                     <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
                     <div class="mbr-navbar__column mbr-navbar__menu">
                         <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                             <div class="mbr-navbar__column">
                                 <ul
                                     class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="index.html">HOME</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
                                             href="about.html">ABOUT</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
@@ -114,64 +100,45 @@
         </div>
     </section>
 
+    <section id="home" class="engine"><a rel="external" href="https://mobirise.com">Mobirise</a></section>
+    <section
+        class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted"
+        id="header2-2" style="background-image: url(assets/images/background.jpg);  background-position: bottom;">
+        <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-left mbr-after-navbar">
 
-    <section id="about" class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background"
-        id="content5-6">
-        <div class="mbr-section__container container mbr-section__container--first">
-            <div class="mbr-header mbr-header--wysiwyg row" style="padding-top: 50px;">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">ABOUT</h3>
+            <div class="mbr-box__container mbr-section__container container">
+                <div class="mbr-box mbr-box--stretched">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-left">
+                        <div class="row">
+                            <div class=" col-sm-6 col-sm-offset-6">
+                                <div class="mbr-hero animated fadeInUp">
+                                    <h1 class="mbr-hero__text"
+                                        style="text-shadow: 0 0 0.2em #000000, 0 0 0.2em #000000"><span
+                                            class="countyname"></span> County Wildfire Fuel Mapper</h1>
+                                    <h1 class="mbr-hero__subtext"
+                                        style="text-shadow: 0 0 0.2em #000000, 0 0 0.2em #000000; letter-spacing: 0px">
+                                        Understand your land, reduce fuels, and protect your community</h1>
+                                    <p class="mbr-hero__subtext"
+                                        style="text-shadow: 0 0 0.2em #000000, 0 0 0.2em #000000"><i>Maps, resources,
+                                            and information to help <span class="countyname"></span> County residents
+                                            and land managers reduce fire fuel hazard.</i></p>
+                                </div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:left"><a
+                                        class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
+                                        href="https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6"
+                                        target="_blank">Learn about<br>Fuels Management</a></div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:right"><a
+                                        class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
+                                        href="report.html">Download your<br>Custom Map</a></div>
 
-                </div>
-            </div>
-        </div>
-        <div class="mbr-section__container container mbr-section__container--last">
-            <div class="row">
-                <div class="mbr-article mbr-article--wysiwyg col-sm-8 col-sm-offset-2">
-                    <p>In <span class="countyname"></span> County and across the west, fires have grown larger and more
-                        destructive. Our communities need a coordinated, regional approach to manage fuels and protect
-                        people, ecosystems, and infrastructure. While fuel reduction projects require maps and
-                        information about a landscape, there are few tools to assist <span class="countyname"></span>
-                        County landowners and managers in locating and understanding fire hazards on their land. The
-                        <i><b>Wildfire Fuel Mapper</b></i> project was created to help address this gap, providing users
-                        with a set of tools, resources, and information to help <span class="countyname"></span> County
-                        landowners and managers reduce fire hazards. These tools and resources include detailed maps of
-                        landscape elements that help users assess fire hazards, and resources to support users in taking
-                        the next step in managing fuels and reducing fire hazards.
-                    </p>
-
-                    <div style="display: flex">
-                        <div style="float:left">
-                            <img src="assets/images/about.jpg" width="100%">
-                        </div>
-                        <div style="float:right; padding-left: 10px">
-                            <p><i>The Mapper helps landowners to:</i></p>
-                            <ul>
-                                <li>Understand vegetation types</li>
-                                <li>Understand the need for fuel treatments in <span class="countyname"></span> County
-                                </li>
-                                <li>Obtain information on planning and implementing fuel treatments in <span
-                                        class="countyname"></span> County</li>
-                                <li>Obtain maps for their property or watershed</li>
-                            </ul><br>
-                            <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:left;"><a
-                                    class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                                    id=link1
-                                    href="./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf" target="_blank">Download the
-                                    <br>Wildfire Fuel Mapper<br>1-Page Brochure</a></div>
-                            <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:right"><a
-                                    class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                                    id=link2
-                                    href="./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf">Download the<br>User
-                                    Guide</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
     </section>
-
 
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts1-5"
         style="background-color: #6d6f71;">
@@ -185,9 +152,7 @@
                     <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha
                         Comendant, Pepperwood</a>
                 </div>
-                <div>
-                    <img src="assets/images/LogoPanel_Wide.png" height="100px" style="float:right; margin-top: 10px">
-                </div>
+                <img src="assets/images/LogoPanel_Wide.png" height="100px" style="float:right; margin-top: 10px">
                 <div style="color: white; width: 50%; float: right; margin-top: 10px">
                     <p>This project is a collaboration between <a class="footLink" href="http://cesonoma.ucanr.edu/"
                             target="_blank">University of California Cooperative Extension (UCCE)</a>, <a
