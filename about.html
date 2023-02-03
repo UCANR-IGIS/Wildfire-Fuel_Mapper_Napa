@@ -12,14 +12,12 @@
 
     <title>The Wildfire Fuel Mapper</title>
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/animate.css/animate.min.css">
     <link rel="stylesheet" href="assets/mobirise/css/style.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
 </head>
@@ -43,11 +41,13 @@
                         return pair[1];
                     }
                 }
-                return (false);
+                return ('the');
             }
 
             $(".countyname").text(progArea);
-            $(".uppercase").text(progArea.toUpperCase());
+            if (progArea != "the"){
+            $(".uppercase").text(progArea.toUpperCase() + " COUNTY");}
+            else{$(".uppercase").text("");}
             $(".mbr-buttons__link").each(function () {
                 var $this = $(this);
                 var _href = $this.attr("href");
@@ -56,55 +56,61 @@
 
             if (progArea == "Sonoma") {
                 link1href =
-                    "./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf"
+                    "https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6"
                 link2href = 
-                    "./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
+                    "report.html"
+                link3href = 
+                    "https://geoportal.ucanr.edu/lakesonoma/assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
+                link4href = 
+                    "https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current"
 
             } else if (progArea == "Napa") {
                 link1href = "https://igis.ucanr.edu/"
                 link2href = "https://igis.ucanr.edu/"
+                link3href = "https://igis.ucanr.edu/"
+                link4href = "https://igis.ucanr.edu/"
             }
 
-            $("#link1").attr("href", link1href)
-            $("#link2").attr("href", link2href)
+            $("#Link1").attr("href", link1href)
+            $("#Link2").attr("href", link2href)
+            $("#Link3").attr("href", link2href)
+            $("#Link4").attr("href", link2href)
 
         });
     </script>
 
-    <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse"
-        id="ext_menu-0">
-        <div class="mbr-navbar__section mbr-section">
-            <div class="mbr-section__container container">
-                <div class="mbr-navbar__container">
-                    <div class="mbr-navbar__column mbr-navbar__menu">
-                        <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-left">
-                            <div class="mbr-navbar__column">
-                                
-                                <ul
-                                    class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
-                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span><span style="color:#e05e31; font-size:20px; font-weight: 700;"> COUNTY</span></li>
-                                </ul>
-                            </div>
-                        </nav>
+<section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse"
+id="ext_menu-0">
+<div class="mbr-navbar__section mbr-section">
+    <div class="mbr-section__container container">
+        <div class="mbr-navbar__container">
+            <div class="mbr-navbar__column mbr-navbar__menu">
+                <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-left">
+                    <div class="mbr-navbar__column">
+                        
+                        <ul
+                            class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                            <li class="mbr-navbar__item"><span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
+                                class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span></li>
+                        </ul>
                     </div>
-    
-                    <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
-                    <div class="mbr-navbar__column mbr-navbar__menu">
-                        <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
-                            <div class="mbr-navbar__column">
-                                <ul
-                                    class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="index.html">HOME</a></li>
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="about.html">ABOUT</a></li>
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="report.html">CUSTOM MAPS</a></li>
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="resources.html">RESOURCES & DATA</a></li>
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
-                                            href="support.html">FAQ</a></li>
+                </nav>
+            </div>
+
+            <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
+            <div class="mbr-navbar__column mbr-navbar__menu">
+                <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+                    <div class="mbr-navbar__column">
+                        <ul
+                            class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                href="index.html">CHANGE COUNTY</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                    href="county_IDX.html">COUNTY HOME</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about.html">ABOUT</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="report.html">CUSTOM MAPS</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="resources.html">RESOURCES & DATA</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="support.html">FAQ</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -115,12 +121,11 @@
     </section>
 
 
-    <section id="about" class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background"
-        id="content5-6">
+    <section id="about" class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-parallax-background" id="content5-6">
         <div class="mbr-section__container container mbr-section__container--first">
             <div class="mbr-header mbr-header--wysiwyg row" style="padding-top: 50px;">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">ABOUT</h3>
+                    <h3 class="mbr-header__text">TAKE ACTION, REDUCE WILDFIRES</h3>
 
                 </div>
             </div>
@@ -128,43 +133,40 @@
         <div class="mbr-section__container container mbr-section__container--last">
             <div class="row">
                 <div class="mbr-article mbr-article--wysiwyg col-sm-8 col-sm-offset-2">
-                    <p>In <span class="countyname"></span> County and across the west, fires have grown larger and more
-                        destructive. Our communities need a coordinated, regional approach to manage fuels and protect
-                        people, ecosystems, and infrastructure. While fuel reduction projects require maps and
-                        information about a landscape, there are few tools to assist <span class="countyname"></span>
-                        County landowners and managers in locating and understanding fire hazards on their land. The
-                        <i><b>Wildfire Fuel Mapper</b></i> project was created to help address this gap, providing users
-                        with a set of tools, resources, and information to help <span class="countyname"></span> County
-                        landowners and managers reduce fire hazards. These tools and resources include detailed maps of
-                        landscape elements that help users assess fire hazards, and resources to support users in taking
-                        the next step in managing fuels and reducing fire hazards.
+                    <p>In <span class="countyname"></span> County and across the west, fires have grown larger and more destructive. Our communities need a coordinated, regional approach to manage fuels and protect people, ecosystems, and infrastructure.
                     </p>
 
+                    <img src="assets/images/IMG_4524.jpg" height="400vh" width="100%" style="object-fit: cover">
+                    <p>The Wildfire Fuel Mapper was created to help landowners and managers in locating and understanding fire hazards on their land, providing users with a set of tools, resources, and information to help landowners and managers reduce fire hazards. The Wildfire Fuel Mapper can also be utilized by professionals to support their clients in planning vegetation management projects.</p>
+
                     <div style="display: flex">
-                        <div style="float:left">
-                            <img src="assets/images/about.jpg" width="100%">
+                        <div style="float:left; flex-basis: 85%;">
+                            <img src="assets/images/Wild Fire Fuel Mapper Flow Chart.jpg" width="100%">
                         </div>
                         <div style="float:right; padding-left: 10px">
-                            <p><i>The Mapper helps landowners to:</i></p>
+                            <p>The Wildfire Fuel Mapper helps landowners and managers:</p>
                             <ul>
-                                <li>Understand vegetation types</li>
-                                <li>Understand the need for fuel treatments in <span class="countyname"></span> County
-                                </li>
-                                <li>Obtain information on planning and implementing fuel treatments in <span
-                                        class="countyname"></span> County</li>
-                                <li>Obtain maps for their property or watershed</li>
+                                <li>Understand vegetation types and the need for fuel treatments</li>
+                                <li>Download best available information for properties and watersheds</li>
+                                <li>Connect with experts who can help plan and implement forest friendly fuel treatments</li>
                             </ul><br>
-                            <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:left;"><a
-                                    class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                                    id=link1
-                                    href="./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf" target="_blank">Download the
-                                    <br>Wildfire Fuel Mapper<br>1-Page Brochure</a></div>
-                            <div class="mbr-buttons btn-inverse mbr-buttons--left" style="float:right"><a
-                                    class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                                    id=link2
-                                    href="./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf">Download the<br>User
-                                    Guide</a></div>
+
                         </div>
+                    </div>
+                    <p>Vegetation management is designed to alter the amounts and arrangement of fuels that sustain wildfires. These actions have been shown to lead to fewer, smaller, and less damaging fires. You can take the next steps to implement a vegetation management plan and, together, we can support our region’s overall resilience to wildfire.
+                    </p>
+                    <h3 style="text-align: center">Take action today.</h3>
+                    <div class=" col-sm-3">
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link1" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6" target="_blank">Explore basics of<br>fuels management</a></div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link2" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="report.html">Access custom<br>map reports</a></div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link3" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://geoportal.ucanr.edu/lakesonoma/assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf" target="_blank">Detailed user<br>support</a></div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link4" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current" target="_blank">Give us your<br>feedback</a></div>
                     </div>
                 </div>
             </div>
@@ -173,31 +175,29 @@
     </section>
 
 
-    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts1-5"
-        style="background-color: #6d6f71;">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts1-5" style="background-color: #6d6f71;">
 
         <div class="mbr-section__container container">
             <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 0px; padding-bottom: 30px">
                 <div style="color: white; text-align:left; width: 25%; float: left">
-                    <h4>Contact Us:</h4>
-                    <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson,
-                        UCCE</a><br />
-                    <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha
-                        Comendant, Pepperwood</a>
+                    <div>
+                        <h4>Contact Us:</h4>
+                        <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson, UCCE</a><br />
+                        <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha Comendant, Pepperwood</a>
+                    </div>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="81D1SCR8"></script>
+                    <div class="fb-share-button" data-href="https://wildfirefuelmapper.org/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwildfirefuelmapper.org%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <div style="margin-top: 5px">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                 </div>
                 <div>
                     <img src="assets/images/LogoPanel_Wide.png" height="100px" style="float:right; margin-top: 10px">
                 </div>
                 <div style="color: white; width: 50%; float: right; margin-top: 10px">
-                    <p>This project is a collaboration between <a class="footLink" href="http://cesonoma.ucanr.edu/"
-                            target="_blank">University of California Cooperative Extension (UCCE)</a>, <a
-                            class="footLink" href="https://www.pepperwoodpreserve.org/" target="_blank">Pepperwood</a>
-                        and <a class="footLink" href="https://tukmangeospatial.com/" target="_blank">Tukman
-                            Geospatial</a>,with support from <a class="footLink"
-                            href="https://www.pge.com/en_US/about-pge/about-pge.page" target="_blank">PG&E</a>, the <a
-                            class="footLink" href="http://www.fltfoundation.org/index.html" target="_blank">Thornton
-                            Foundation</a>, and <a class="footLink" href="https://www.fire.ca.gov/" target="_blank">CAL
-                            FIRE</a>.</p>
+                    <p>This project is a collaboration between <a class="footLink" href="http://cesonoma.ucanr.edu/" target="_blank">University of California Cooperative Extension (UCCE)</a>, <a class="footLink" href="https://www.pepperwoodpreserve.org/" target="_blank">Pepperwood</a> and <a class="footLink" href="https://tukmangeospatial.com/" target="_blank">Tukman Geospatial</a>,with support from <a class="footLink" href="https://www.pge.com/en_US/about-pge/about-pge.page" target="_blank">PG&E</a>, the <a class="footLink" href="http://www.fltfoundation.org/index.html" target="_blank">Thornton Foundation</a>, and <a class="footLink" href="https://www.fire.ca.gov/" target="_blank">CAL FIRE</a>.</p>
 
                 </div>
 
@@ -206,9 +206,9 @@
     </section>
 
     <script>
-        (function (i, s, o, g, r, a, m) {
+        (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
+            i[r] = i[r] || function() {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date();
             a = s.createElement(o),
@@ -219,6 +219,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-99560076-15', 'auto');
         ga('send', 'pageview');
+
     </script>
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

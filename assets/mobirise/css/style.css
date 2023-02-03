@@ -1547,7 +1547,8 @@ html {
 
 .mbr-buttons__btn,
 .mbr-buttons__link {
-    margin: 0 10px 13px 0;
+    margin: 0;
+    width: 100% !important;
 }
 
 .mbr-buttons__btn,

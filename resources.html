@@ -116,8 +116,8 @@
         }
 
         .imga {
-            height: 15px;
-            width: 75px;
+            height: 20px;
+            width: 38px;
             padding-right: 15px;
         }
 
@@ -142,25 +142,78 @@
 
     </style>
     <script src="js/alasql.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
+        var progArea
+        $(document).ready(function () {
+            progArea = getQueryVariable("id");
+
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return ('the');
+            }
+
+            $(".countyname").text(progArea);
+            if (progArea != "the"){
+            $(".uppercase").text(progArea.toUpperCase() + " COUNTY");}
+            else{$(".uppercase").text("");}
+            $(".mbr-buttons__link").each(function () {
+                var $this = $(this);
+                var _href = $this.attr("href");
+                $this.attr("href", _href + '?id=' + progArea);
+            });
+
+            if (progArea == "Sonoma") {
+                link1href =
+                    "./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf"
+                link2href = 
+                    "./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
+
+            } else if (progArea == "Napa") {
+                link1href = "https://igis.ucanr.edu/"
+                link2href = "https://igis.ucanr.edu/"
+            }
+
+            $("#link1").attr("href", link1href)
+            $("#link2").attr("href", link2href)
+
+        });
+    <!--</script>
+    <script>-->
         $.ajaxSetup({
             async: false
         });
 
         function getSpecialists() {
             var items = [];
-            $.getJSON("https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/2/public/values?alt=json", function(data) {
+            $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Specialists-Experts?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s", function(data) {
 
-                $.each(data.feed.entry, function(key, val) {
-                    t = {
-                        about: val.gsx$about.$t,
-                        agency: val.gsx$agency.$t,
-                        contact: val.gsx$contact.$t,
-                        regions: val.gsx$regions.$t,
-                        url: val.gsx$webpagelink.$t,
-                        subcategory: val.gsx$subcategory.$t
+                $.each(data.values, function(key, val) {
+                    if (key > 0) {
+                        if (typeof val[5] == 'undefined') {
+                            val[5] = ""
+                        }
+
+                        t = {
+                            about: val[3],
+                            agency: val[1],
+                            contact: val[5],
+                            regions: val[2],
+                            url: val[4],
+                            subcategory: val[0],
+                            counties: val[6]
+                        }
+                         if (val[6].includes(progArea)){
+                            items.push(t);
+                        } 
                     }
-                    items.push(t);
                 });
             });
 
@@ -173,19 +226,26 @@
 
         function getFunding() {
             var items = [];
-            $.getJSON("https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/3/public/values?alt=json", function(data) {
+            $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Funding%20Opportunities?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s", function(data) {
 
-                $.each(data.feed.entry, function(key, val) {
-                    t = {
-                        about: val.gsx$about.$t,
-                        agency: val.gsx$agency.$t,
-                        contact: val.gsx$contact.$t,
-                        eligability: val.gsx$eligability.$t,
-                        fundingtype: val.gsx$fundingtype.$t,
-                        program: val.gsx$program.$t,
-                        url: val.gsx$webpage.$t
+                $.each(data.values, function(key, val) {
+                    if (key > 0) {
+                        if (typeof val[6] == 'undefined') {
+                            val[6] = ""
+                        }
+                        t = {
+                            about: val[3],
+                            agency: val[2],
+                            contact: val[6],
+                            eligability: val[4],
+                            fundingtype: val[1],
+                            program: val[0],
+                            url: val[5]
+                        }
+                         if (val[7].includes(progArea)){
+                            items.push(t);
+                        }
                     }
-                    items.push(t);
                 });
             });
 
@@ -194,15 +254,19 @@
 
         function getLearn() {
             var items = [];
-            $.getJSON("https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/4/public/values?alt=json", function(data) {
+            $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Fire Preparedness and Fuel Management Resources?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s", function(data) {
 
-                $.each(data.feed.entry, function(key, val) {
-                    t = {
-                        about: val.gsx$about.$t,
-                        agency: val.gsx$agency.$t,
-                        url: val.gsx$webpagelink.$t
+                $.each(data.values, function(key, val) {
+                    if (key > 0) {
+                        t = {
+                            about: val[1],
+                            agency: val[0],
+                            url: val[2]
+                        }
+                         if (val[3].includes(progArea)){
+                            items.push(t);
+                        }
                     }
-                    items.push(t);
                 });
             });
 
@@ -211,20 +275,27 @@
 
         function getData() {
             var items = [];
-            $.getJSON("https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/5/public/values?alt=json", function(data) {
+            $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Data Sources?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s", function(data) {
 
-                $.each(data.feed.entry, function(key, val) {
-                    t = {
-                        adoptiondate: val.gsx$adoptiondate.$t,
-                        contact: val.gsx$contact.$t,
-                        dataacces: val.gsx$dataaccess.$t,
-                        datatype: val.gsx$datatype.$t,
-                        description: val.gsx$description.$t,
-                        lastupdated: val.gsx$lastupdated.$t,
-                        name: val.gsx$name.$t,
-                        source: val.gsx$source.$t
+                $.each(data.values, function(key, val) {
+                    if (key > 0) {
+                        if (typeof val[7] == 'undefined') {
+                            val[7] = ""
+                        }
+                        t = {
+                            adoptiondate: val[4],
+                            contact: val[7],
+                            dataacces: val[6],
+                            datatype: val[3],
+                            description: val[2],
+                            lastupdated: val[5],
+                            name: val[0],
+                            source: val[1]
+                        }
+                         if (val[8].includes(progArea)){
+                            items.push(t);
+                        }
                     }
-                    items.push(t);
                 });
             });
 
@@ -308,13 +379,18 @@
             return list
         }
 
-        special = getSpecialists()
+        /* special = getSpecialists()
+        specialists = showSpecialists(getSpecialists())
+        funding = showFunding(getFunding())
+        learn = showLearn(getLearn())
+        data = showData(getData()) */
+
+        $(document).ready(function() {
+            special = getSpecialists()
         specialists = showSpecialists(getSpecialists())
         funding = showFunding(getFunding())
         learn = showLearn(getLearn())
         data = showData(getData())
-
-        $(document).ready(function() {
             $('.panel-collapse').on('show.bs.collapse', function() {
                 $(this).siblings('.panel-heading').addClass('active');
             });
@@ -336,38 +412,8 @@
 
 
 <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script>
-        var progArea
-        $(document).ready(function(){
-            progArea = getQueryVariable("id");
-
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                if (pair[0] == variable) {
-                    return pair[1];
-                }
-            }
-            return (false);
-        }
-
-                $(".countyname").text(progArea);
-                $(".uppercase").text(progArea.toUpperCase());
-
-
-              $(".mbr-buttons__link").each(function() {
-   var $this = $(this);       
-   var _href = $this.attr("href"); 
-   $this.attr("href", _href + '?id='+progArea);
-});
-            
-          });
-          </script>
-
-    <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="ext_menu-0">
+    <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse"
+        id="ext_menu-0">
         <div class="mbr-navbar__section mbr-section">
             <div class="mbr-section__container container">
                 <div class="mbr-navbar__container">
@@ -378,17 +424,22 @@
                                 <ul
                                     class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
                                     <li class="mbr-navbar__item"><span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
-                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span><span style="color:#e05e31; font-size:20px; font-weight: 700;"> COUNTY</span></li>
+                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
+    
                     <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
                     <div class="mbr-navbar__column mbr-navbar__menu">
                         <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                             <div class="mbr-navbar__column">
-                                <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">HOME</a></li>
+                                <ul
+                                    class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                        href="index.html">CHANGE COUNTY</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                            href="county_IDX.html">COUNTY HOME</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about.html">ABOUT</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="report.html">CUSTOM MAPS</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="resources.html">RESOURCES & DATA</a></li>
@@ -417,7 +468,9 @@
             <div class="row">
 
                 <div class="mbr-article mbr-article--wysiwyg col-sm-8 col-sm-offset-2">
-                    <p>In addition to custom maps that can help users visualize their landscape and fuels on their property, there are additional resources available: contact information for specialists and experts, funding opportunities to help support fuel management projects, and educational materials related to vegetation management and fire preparedness. </p>
+                    <p>In addition to custom maps that can help you visualize your landscape and fuels on your property, there are additional resources available aboutt stewardship and vegetation management. This includes contact information for specialists and experts, available funding opportunities, and educational materials related to vegetation management and fire preparedness.</p>
+
+                    <p>These educational materials and resources will help support your fire preparedness.</p>
 
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -512,10 +565,18 @@
         <div class="mbr-section__container container">
             <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 0px; padding-bottom: 30px">
                 <div style="color: white; text-align:left; width: 25%; float: left">
-                    <h4>Contact Us:</h4>
-                    <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson, UCCE</a>
-                    <br />
-                    <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha Comendant, Pepperwood</a>
+                    <div>
+                        <h4>Contact Us:</h4>
+                        <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson, UCCE</a><br />
+                        <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha Comendant, Pepperwood</a>
+                    </div>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="81D1SCR8"></script>
+                    <div class="fb-share-button" data-href="https://wildfirefuelmapper.org/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwildfirefuelmapper.org%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <div style="margin-top: 5px">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                 </div>
                 <img src="assets/images/LogoPanel_Wide.png" height="100px" style="float:right; margin-top: 10px">
                 <div style="color: white; width: 50%; float: right; margin-top: 10px">

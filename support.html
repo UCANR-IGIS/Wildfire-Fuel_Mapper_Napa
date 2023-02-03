@@ -147,6 +147,50 @@
 
     </style>
     <script src="js/alasql.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        var progArea
+        $(document).ready(function () {
+            progArea = getQueryVariable("id");
+
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return ('the');
+            }
+
+            $(".countyname").text(progArea);
+            if (progArea != "the"){
+            $(".uppercase").text(progArea.toUpperCase() + " COUNTY");}
+            else{$(".uppercase").text("");}
+            $(".mbr-buttons__link").each(function () {
+                var $this = $(this);
+                var _href = $this.attr("href");
+                $this.attr("href", _href + '?id=' + progArea);
+            });
+
+            if (progArea == "Sonoma") {
+                link1href =
+                    "./assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf"
+                link2href = 
+                    "./assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
+
+            } else if (progArea == "Napa") {
+                link1href = "https://igis.ucanr.edu/"
+                link2href = "https://igis.ucanr.edu/"
+            }
+
+            $("#link1").attr("href", link1href)
+            $("#link2").attr("href", link2href)
+
+        });
+    </script>
     <script>
         $.ajaxSetup({
             async: false
@@ -341,39 +385,8 @@
 
 
 <body>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script>
-        var progArea
-        $(document).ready(function(){
-            progArea = getQueryVariable("id");
-
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                if (pair[0] == variable) {
-                    return pair[1];
-                }
-            }
-            return (false);
-        }
-
-        $(".countyname").text(progArea);
-        $(".uppercase").text(progArea.toUpperCase());
-
-
-              $(".mbr-buttons__link").each(function() {
-   var $this = $(this);       
-   var _href = $this.attr("href"); 
-   $this.attr("href", _href + '?id='+progArea);
-});
-            
-          });
-          </script>
-
-    <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="ext_menu-0">
+    <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse"
+        id="ext_menu-0">
         <div class="mbr-navbar__section mbr-section">
             <div class="mbr-section__container container">
                 <div class="mbr-navbar__container">
@@ -384,17 +397,22 @@
                                 <ul
                                     class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
                                     <li class="mbr-navbar__item"><span class="mbr-brand__logo"><a href="index.html"><img src="assets/images/logo.png"
-                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span><span style="color:#e05e31; font-size:20px; font-weight: 700;"> COUNTY</span></li>
+                                        class="mbr-navbar__brand-img mbr-brand__img" alt="Mobirise"></a></span><span class="countyname uppercase" style="color:#e05e31; font-size:20px; font-weight: 700; padding-left: 20px;"></span></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
+    
                     <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
                     <div class="mbr-navbar__column mbr-navbar__menu">
                         <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                             <div class="mbr-navbar__column">
-                                <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">HOME</a></li>
+                                <ul
+                                    class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                        href="index.html">CHANGE COUNTY</a></li>
+                                    <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white"
+                                            href="county_IDX.html">COUNTY HOME</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about.html">ABOUT</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="report.html">CUSTOM MAPS</a></li>
                                     <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="resources.html">RESOURCES & DATA</a></li>
@@ -414,7 +432,7 @@
         <div class="mbr-section__container container mbr-section__container--first">
             <div class="mbr-header mbr-header--wysiwyg row" style="padding-top: 50px;">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="mbr-header__text">FAQ</h3>
+                    <h3 class="mbr-header__text">FREQUENTLY ASKED QUESTIONS</h3>
 
                 </div>
             </div>
@@ -432,14 +450,17 @@
                                 <div class='container1' style="padding: 15px"><img src="images/4.png" align="left">
                                     <div>
                                         <div>Contact Us</div>
-                                        <div class="paragraph">Questions or comments? Please contact Dr. Stephanie Larson (<a href="mailto:slarson@ucanr.edu">slarson@ucanr.edu</a>) or Dr. Tosha Comendant (<a href="mailto:tcomendant@pepperwoodpreserve.org">tcomendant@pepperwoodpreserve.org</a>)</div>
+                                        <div class="paragraph">Have additional questions or concerns that are not listed? Please contact Dr. Stephanie Larson (<a href="mailto:slarson@ucanr.edu">slarson@ucanr.edu</a>) or Dr. Tosha Comendant (<a href="mailto:tcomendant@pepperwoodpreserve.org">tcomendant@pepperwoodpreserve.org</a>)</div>
+                                        <div class="paragraph" style="font-size: 20px; font-weight: bold">
+                                            Fill out <a href="https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current" target="_blank">this short survey</a> to provide feedback.
+                                        </div>
                                     </div>
                                 </div>
                                 <!--                        </a>-->
                             </h4>
                         </div>
                     </div>
-                    <h3>Frequently Asked Questions</h3>
+                    <!--<h3>Frequently Asked Questions</h3>-->
                     <div class="panel-group" id="accordion">
 
                         <div class="panel panel-default">
@@ -462,7 +483,7 @@
                             </div>
                             <div id="collapseTen" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    The Wildfire Fuel Mapper maps use the best available data for our region, using various sources such as ground observations, satellite imagery and other geospatial data. Many of the static maps in the report were created using data products from the 2013 <span class = "countyname"></span> County Vegetation Mapping and LiDAR program. The <span class = "countyname"></span> County Vegetation Mapping and LiDAR program collected vegetation data at a 5 meter resolution, producing data products that provide a more detailed view of our landscape than other publicly available datasets, which often come at 30mx30m or greater. The maps in the report offer a unique and important compilation of maps at both a property and landscape scale that hasn’t previously been accessible. It is important to note that because much of the data used in the map reports are from 2013, elements on your property (e.g. vegetation height, ladder fuels) could have changed since then.
+                                    The Wildfire Fuel Mapper maps use the best available data for our region, using various sources such as ground observations, satellite imagery and other geospatial data. Many of the static maps in the report were created using data products from the 2013 Sonoma County Vegetation Mapping and LiDAR program. The Sonoma County Vegetation Mapping and LiDAR program collected vegetation data at a 5 meter resolution, producing data products that provide a more detailed view of our landscape than other publicly available datasets, which often come at 30mx30m or greater. The maps in the report offer a unique and important compilation of maps at both a property and landscape scale that hasn’t previously been accessible. It is important to note that because much of the data used in the map reports are from 2013, elements on your property (e.g. vegetation height, ladder fuels) could have changed since then.
                                 </div>
                             </div>
                         </div>
@@ -474,7 +495,7 @@
                             </div>
                             <div id="collapseEleven" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    All parcels of 3 acres of greater within <span class = "countyname"></span> County are available for download. If you do not see your parcel, it is likely because it is too small of a parcel or it does not fall within <span class = "countyname"></span> County boundaries.
+                                    All parcels of 3 acres of greater within Sonoma County are available for download. If you do not see your parcel, it is likely because it is too small of a parcel or it does not fall within Sonoma County boundaries.
                                 </div>
                             </div>
                         </div>
@@ -523,7 +544,7 @@
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Previous fires are important to consider when evaluating current fuels and fire hazards. The length of time since fire occurrence and the severity of the fire play a role in vegetation type, density, and accumulation. Because the vegetation maps used in the Wildfire Fuel Mapper report are from the <span class = "countyname"></span> County LiDAR program in 2013, vegetation on your property may have changed since then, especially if your property has burned. We advise working with a specialist or expert to assess post-fire fuels and changes in vegetation.
+                                    Previous fires are important to consider when evaluating current fuels and fire hazards. The length of time since fire occurrence and the severity of the fire play a role in vegetation type, density, and accumulation. Because the vegetation maps used in the Wildfire Fuel Mapper report are from the Sonoma County LiDAR program in 2013, vegetation on your property may have changed since then, especially if your property has burned. We advise working with a specialist or expert to assess post-fire fuels and changes in vegetation.
                                 </div>
                             </div>
                         </div>
@@ -539,7 +560,30 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">How do I share information about the Wildfire Fuel Mapper with my community?</a>
+                                </h4>
+                            </div>
+                            <div id="collapseNine" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Linked <a href="https://geoportal.ucanr.edu/lakesonoma/assets/docs/Wildfire_Fuel_Mapper_1_Pager.pdf" target="_blank">here</a> is our one page fact sheet you can send to friends and neighbors. Additionally, feel free to share this website on social media.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">How can I learn more about the history and basics of fuel management in Sonoma County?</a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Explore the Wildfire Fuel Mapper <a href="https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6" target="_blank">Story Map</a> that provides background on wildfire and fues, introduces fuel management strategies, provides access to property and watershed maps, and outline a how-to-guide for taking action.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -552,10 +596,18 @@
         <div class="mbr-section__container container">
             <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 0px; padding-bottom: 30px">
                 <div style="color: white; text-align:left; width: 25%; float: left">
-                    <h4>Contact Us:</h4>
-                    <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson, UCCE</a>
-                    <br />
-                    <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha Comendant, Pepperwood</a>
+                    <div>
+                        <h4>Contact Us:</h4>
+                        <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson, UCCE</a><br />
+                        <a class="footLink" href="mailto:tcomendant@pepperwoodpreserve.org" target="_blank">Dr. Tosha Comendant, Pepperwood</a>
+                    </div>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="81D1SCR8"></script>
+                    <div class="fb-share-button" data-href="https://wildfirefuelmapper.org/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwildfirefuelmapper.org%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <div style="margin-top: 5px">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                 </div>
                 <img src="assets/images/LogoPanel_Wide.png" height="100px" style="float:right; margin-top: 10px">
                 <div style="color: white; width: 50%; float: right; margin-top: 10px">
