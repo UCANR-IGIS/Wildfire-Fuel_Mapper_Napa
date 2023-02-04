@@ -63,7 +63,6 @@
         $(document).ready(function () {
             progArea = getQueryVariable("id");
 
-            z = getApps()
 
             $(".countyname").text(progArea);
 
@@ -76,6 +75,21 @@
                 var _href = $this.attr("href");
                 $this.attr("href", _href + '?id=' + progArea);
             });
+
+            z = getApps()
+
+            $.each(z, function (key, val) {
+                    if (key > 0) {
+                        t = {
+                            URL: val[1],
+                            Location: val[0],
+                            Counties: val[2]
+                        }
+                        if (val[2].includes(progArea)) {
+                            items.push(t);
+                        }
+                    }
+                });
 
             if (progArea == "Sonoma") {
                 frame1src = "https://ucanr.maps.arcgis.com/apps/View/index.html?appid=e47dc10d09ce414a8df7e9b021f5da5e"
