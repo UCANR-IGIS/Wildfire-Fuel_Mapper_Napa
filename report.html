@@ -50,7 +50,6 @@
                 callback()
             });
 
-
         }
 
         function getQueryVariable(variable) {
@@ -66,8 +65,8 @@
         }
 
         function geturls() {
-            $("#frame1").attr("src", z[1].URL)
-            $("#frame2").attr("src", z[0].URL)
+            $("#frame1").attr("src", z[0].URL)
+            $("#frame2").attr("src", z[1].URL)
         }
 
         $(document).ready(function () {
@@ -87,20 +86,6 @@
             });
 
             getApps(geturls)
-
-            /*frame1src = z[0].URL
-            frame2src = z[1].URL
-
-            if (progArea == "Sonoma") {
-                frame1src = "https://ucanr.maps.arcgis.com/apps/View/index.html?appid=e47dc10d09ce414a8df7e9b021f5da5e"
-                frame2src = "https://ucanr.maps.arcgis.com/apps/View/index.html?appid=7abbd7937b6e43bcbbe6ffc26f27ef86"
-            } else if (progArea == "Napa") {
-                frame1src = "https://www.youtube.com/embed/wBT4TOHFQMY"
-                frame2src = "https://www.youtube.com/embed/wBT4TOHFQMY"
-            }
-
-            $("#frame1").attr("src", frame1src)
-            $("#frame2").attr("src", frame2src)*/
         });
 
     </script>

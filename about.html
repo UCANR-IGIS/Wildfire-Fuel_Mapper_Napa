@@ -28,7 +28,58 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
+         $.ajaxSetup({
+            async: false
+        });
+
         var progArea
+        var z
+
+        function getApps(callback) {
+            var items = [];
+
+            $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s", function (data) {
+
+                $.each(data.values, function (key, val) {
+                        t = {
+                            URL: val[1],
+                            Location: val[0],
+                            Counties: val[2]
+                        }
+                        if (val[2].includes(progArea)) {
+                            items.push(t);
+                        }
+                    //}
+                });
+                z = items.sort((a, b) => a.Location.localeCompare(b.Location));
+                console.log(z)
+                callback()
+            });
+
+
+        }
+
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return ('the');
+        }
+
+        function geturls() {
+            $("#Link2").attr("href", "report.html?id=" + progArea)
+            $("#Image1").attr("src", z[4].URL)
+            $("#Link1").attr("href", z[5].URL)
+            $("#Link3").attr("href", z[6].URL)
+            $("#Link4").attr("href", z[7].URL)
+        }
+
+
         $(document).ready(function () {
             progArea = getQueryVariable("id");
 
@@ -54,27 +105,7 @@
                 $this.attr("href", _href + '?id=' + progArea);
             });
 
-            if (progArea == "Sonoma") {
-                link1href =
-                    "https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6"
-                link2href = 
-                    "report.html"
-                link3href = 
-                    "https://geoportal.ucanr.edu/lakesonoma/assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf"
-                link4href = 
-                    "https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current"
-
-            } else if (progArea == "Napa") {
-                link1href = "https://igis.ucanr.edu/"
-                link2href = "https://igis.ucanr.edu/"
-                link3href = "https://igis.ucanr.edu/"
-                link4href = "https://igis.ucanr.edu/"
-            }
-
-            $("#Link1").attr("href", link1href)
-            $("#Link2").attr("href", link2href)
-            $("#Link3").attr("href", link2href)
-            $("#Link4").attr("href", link2href)
+            getApps(geturls)
 
         });
     </script>
@@ -136,7 +167,7 @@ id="ext_menu-0">
                     <p>In <span class="countyname"></span> County and across the west, fires have grown larger and more destructive. Our communities need a coordinated, regional approach to manage fuels and protect people, ecosystems, and infrastructure.
                     </p>
 
-                    <img id='about' src="assets/images/IMG_4524.jpg" height="400vh" width="100%" style="object-fit: cover">
+                    <img id='Image1' src="" height="400vh" width="100%" style="object-fit: cover">
                     <p>The Wildfire Fuel Mapper was created to help landowners and managers in locating and understanding fire hazards on their land, providing users with a set of tools, resources, and information to help landowners and managers reduce fire hazards. The Wildfire Fuel Mapper can also be utilized by professionals to support their clients in planning vegetation management projects.</p>
 
                     <div style="display: flex">
@@ -157,16 +188,16 @@ id="ext_menu-0">
                     </p>
                     <h3 style="text-align: center">Take action today.</h3>
                     <div class=" col-sm-3">
-                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link1" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://storymaps.arcgis.com/stories/e98f13bdf756433ca37d886337be57f6" target="_blank">Explore basics of<br>fuels management</a></div>
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link1" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="">Explore basics of<br>fuels management</a></div>
                     </div>
                     <div class=" col-sm-3">
-                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link2" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="report.html">Access custom<br>map reports</a></div>
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link2" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="">Access custom<br>map reports</a></div>
                     </div>
                     <div class=" col-sm-3">
-                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link3" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://geoportal.ucanr.edu/lakesonoma/assets/docs/Wildfire_Fuel_Mapper_User_Manual.pdf" target="_blank">Detailed user<br>support</a></div>
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link3" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="">Detailed user<br>support</a></div>
                     </div>
                     <div class=" col-sm-3">
-                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link4" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current" target="_blank">Give us your<br>feedback</a></div>
+                        <div class="mbr-buttons btn-inverse mbr-buttons--left"><a id="Link4" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" >Give us your<br>feedback</a></div>
                     </div>
                 </div>
             </div>
