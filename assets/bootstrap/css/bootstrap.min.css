@@ -3605,7 +3605,7 @@ fieldset[disabled] .btn-info.active {
 }
 .btn-warning {
   border-color: #f9a527;
-  color: #ffffff;
+  color: #000000;
   background-color: #faaf40;
   border-color: #faaf40;
 }

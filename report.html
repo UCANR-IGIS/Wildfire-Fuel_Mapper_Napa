@@ -238,9 +238,9 @@
               ><br />
               <a
                 class="footLink"
-                href="mailto:tcomendant@pepperwoodpreserve.org"
+                href="mailto:khenifin@pepperwoodpreserve.org"
                 target="_blank"
-                >Dr. Tosha Comendant, Pepperwood</a
+                >Kai Henifin, Pepperwood</a
               >
             </div>
             <div id="fb-root"></div>
@@ -284,46 +284,7 @@
             style="float: right; margin-top: 10px"
           />
           <div style="color: white; width: 50%; float: right; margin-top: 10px">
-            <p>
-              This project is a collaboration between
-              <a
-                class="footLink"
-                href="http://cesonoma.ucanr.edu/"
-                target="_blank"
-                >University of California Cooperative Extension (UCCE)</a
-              >,
-              <a
-                class="footLink"
-                href="https://www.pepperwoodpreserve.org/"
-                target="_blank"
-                >Pepperwood</a
-              >
-              and
-              <a
-                class="footLink"
-                href="https://tukmangeospatial.com/"
-                target="_blank"
-                >Tukman Geospatial</a
-              >,with support from
-              <a
-                class="footLink"
-                href="https://www.pge.com/en_US/about-pge/about-pge.page"
-                target="_blank"
-                >PG&E</a
-              >, the
-              <a
-                class="footLink"
-                href="http://www.fltfoundation.org/index.html"
-                target="_blank"
-                >Thornton Foundation</a
-              >, and
-              <a
-                class="footLink"
-                href="https://www.fire.ca.gov/"
-                target="_blank"
-                >CAL FIRE</a
-              >.
-            </p>
+            <p id="support1">
           </div>
         </div>
       </div>
@@ -408,6 +369,7 @@
       function geturls() {
         $("#frame1").attr("src", z[0].URL);
         $("#frame2").attr("src", z[1].URL);
+        $("#support1").html(z[11].URL);
       }
 
       $(document).ready(function () {

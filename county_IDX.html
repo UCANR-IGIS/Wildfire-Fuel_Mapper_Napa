@@ -34,6 +34,12 @@
       crossorigin="anonymous"
     />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <style>
+      .mbr-after-navbar:before {
+    content: "";
+    display: block;
+    height:   0px;}
+</style>
   </head>
 
   <body>
@@ -190,7 +196,7 @@
                   <div>
                     <iframe
                       id="Video1"
-                      width="444"
+                      width="470"
                       height="250"
                       src=""
                       title="YouTube video player"
@@ -207,7 +213,7 @@
                           class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
                           href=""
                           target="_blank"
-                          >Explore basics of<br />fuels management</a
+                          >Defense Space<br />Basics <br /></a
                         >
                       </div>
                     </div>
@@ -217,7 +223,7 @@
                           id="link2"
                           class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
                           href=""
-                          >Access custom<br />map reports</a
+                          >Get Custom<br />Map Reports</a
                         >
                       </div>
                     </div>
@@ -228,7 +234,7 @@
                           class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
                           href=""
                           target="_blank"
-                          >Detailed user<br />support</a
+                          ><span class="countyname"></span> County<br />Community Wildfire<br/>Plan</a
                         >
                       </div>
                     </div>
@@ -258,13 +264,13 @@
                 class="footLink"
                 href="mailto:slarson@ucanr.edu"
                 target="_blank"
-                >Dr. Stephanie Larson, UCCE</a
-              ><br />
+                >Dr. Stephanie Larson, UCCE</a>
+                <br/>
               <a
                 class="footLink"
-                href="mailto:tcomendant@pepperwoodpreserve.org"
+                href="mailto:khenifin@pepperwoodpreserve.org"
                 target="_blank"
-                >Dr. Tosha Comendant, Pepperwood</a
+                >Kai Henifin, Pepperwood</a
               >
             </div>
             <div id="fb-root"></div>
@@ -308,45 +314,7 @@
             style="float: right; margin-top: 10px"
           />
           <div style="color: white; width: 50%; float: right; margin-top: 10px">
-            <p>
-              This project is a collaboration between
-              <a
-                class="footLink"
-                href="http://cesonoma.ucanr.edu/"
-                target="_blank"
-                >University of California Cooperative Extension (UCCE)</a
-              >,
-              <a
-                class="footLink"
-                href="https://www.pepperwoodpreserve.org/"
-                target="_blank"
-                >Pepperwood</a
-              >
-              and
-              <a
-                class="footLink"
-                href="https://tukmangeospatial.com/"
-                target="_blank"
-                >Tukman Geospatial</a
-              >,with support from
-              <a
-                class="footLink"
-                href="https://www.pge.com/en_US/about-pge/about-pge.page"
-                target="_blank"
-                >PG&E</a
-              >, the
-              <a
-                class="footLink"
-                href="http://www.fltfoundation.org/index.html"
-                target="_blank"
-                >Thornton Foundation</a
-              >, and
-              <a
-                class="footLink"
-                href="https://www.fire.ca.gov/"
-                target="_blank"
-                >CAL FIRE</a
-              >.
+            <p id="support1">
             </p>
           </div>
         </div>
@@ -436,6 +404,8 @@
         $("#link1").attr("href", z[8].URL);
         $("#link2").attr("href", z[9].URL);
         $("#link3").attr("href", z[10].URL);
+        $("#support1").html(z[11].URL);
+        //$("#support1").attr("text", z[11].URL);
       }
 
       $(document).ready(function () {
@@ -464,6 +434,7 @@
           var _href = $this.attr("href");
           $this.attr("href", _href + "?id=" + progArea);
         });
+
 
         getApps(geturls);
       });

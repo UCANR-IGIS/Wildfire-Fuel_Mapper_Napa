@@ -483,9 +483,9 @@
               ><br />
               <a
                 class="footLink"
-                href="mailto:tcomendant@pepperwoodpreserve.org"
+                href="mailto:khenifin@pepperwoodpreserve.org"
                 target="_blank"
-                >Dr. Tosha Comendant, Pepperwood</a
+                >Kai Henifin, Pepperwood</a
               >
             </div>
             <div id="fb-root"></div>
@@ -529,45 +529,7 @@
             style="float: right; margin-top: 10px"
           />
           <div style="color: white; width: 50%; float: right; margin-top: 10px">
-            <p>
-              This project is a collaboration between
-              <a
-                class="footLink"
-                href="http://cesonoma.ucanr.edu/"
-                target="_blank"
-                >University of California Cooperative Extension (UCCE)</a
-              >,
-              <a
-                class="footLink"
-                href="https://www.pepperwoodpreserve.org/"
-                target="_blank"
-                >Pepperwood</a
-              >
-              and
-              <a
-                class="footLink"
-                href="https://tukmangeospatial.com/"
-                target="_blank"
-                >Tukman Geospatial</a
-              >,with support from
-              <a
-                class="footLink"
-                href="https://www.pge.com/en_US/about-pge/about-pge.page"
-                target="_blank"
-                >PG&E</a
-              >, the
-              <a
-                class="footLink"
-                href="http://www.fltfoundation.org/index.html"
-                target="_blank"
-                >Thornton Foundation</a
-              >, and
-              <a
-                class="footLink"
-                href="https://www.fire.ca.gov/"
-                target="_blank"
-                >CAL FIRE</a
-              >.
+            <p id="support1">
             </p>
           </div>
         </div>
@@ -646,10 +608,8 @@
         $("#link1").attr("href", link1href);
         $("#link2").attr("href", link2href);
       });
-      <!--
     </script>
     <script>
-      -->
       $.ajaxSetup({
         async: false,
       });
@@ -950,6 +910,69 @@
         $("#funding").append(funding);
         $("#learn").append(learn);
         $("#data").append(data);
+      });
+    </script>
+    <script>
+      var z;
+
+      function getApps(callback) {
+        var items = [];
+
+        $.getJSON(
+          "https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
+          function (data) {
+            $.each(data.values, function (key, val) {
+              //if (key > 0) {
+              t = {
+                URL: val[1],
+                Location: val[0],
+                Counties: val[2],
+              };
+              if (val[2].includes(progArea)) {
+                items.push(t);
+              }
+              //}
+            });
+            z = items.sort((a, b) => a.Location.localeCompare(b.Location));
+            console.log(z);
+            callback();
+          }
+        );
+      }
+
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+        }
+        return "the";
+      }
+
+      function geturls() {
+        $("#support1").html(z[11].URL);
+        //$("#support1").attr("text", z[11].URL);
+      }
+
+      $(document).ready(function () {
+        progArea = getQueryVariable("id");
+
+        function getQueryVariable(variable) {
+          var query = window.location.search.substring(1);
+          var vars = query.split("&");
+          for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+              return pair[1];
+            }
+          }
+          return "the";
+        }
+
+        getApps(geturls);
       });
     </script>
   </body>
