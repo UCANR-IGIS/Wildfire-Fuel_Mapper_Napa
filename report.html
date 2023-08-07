@@ -62,7 +62,7 @@
                         class="countyname uppercase"
                         style="
                           color: #e05e31;
-                          font-size: 20px;
+                          font-size: 15px;
                           font-weight: 700;
                           padding-left: 20px;
                         "
@@ -172,40 +172,8 @@
             </p>
 
             <h3>How to create your custom map</h3>
-            <p>
-              Follow the steps below to create custom maps for your property
-              (parcel) or watershed. The report you generate will include maps
-              and informational summaries of landscape elements such as
-              vegetation and fuels to help you assess fire hazards for your
-              selected parcel or watershed.
-            </p>
-            <ol>
-              <li>
-                Download a parcel or watershed report using either the parcel
-                map (first map) or watershed map (second map) below. *Note that
-                only parcels greater than 3 acres are available.*
-              </li>
-              <li>
-                Then, navigate to your parcel or watershed on the map using the
-                +/- buttons on the left and zooming by clicking and dragging.
-                You can also use the search button on the upper right by typing
-                an address or an APN in the first map, or an address or
-                watershed name in the second map.
-              </li>
-              <li>
-                When you have found your parcel or watershed, click it to
-                download your report and maps.
-              </li>
-              <li>
-                Make improvements to these maps by providing your feedback in
-                our short
-                <a
-                  href="https://ucdavis.co1.qualtrics.com/jfe/preview/SV_cSlO66jIkNpFirs?Q_CHL=preview&Q_SurveyVersionID=current"
-                  target="_blank"
-                  >survey</a
-                >.
-              </li>
-            </ol>
+          <div id="language1">
+          </div>
             <iframe id="frame1" width="100%" height="500px" src=""></iframe>
 
             <iframe id="frame2" width="100%" height="500px" src=""></iframe>
@@ -225,17 +193,16 @@
       <div class="mbr-section__container container">
         <div
           class="mbr-contacts mbr-contacts--wysiwyg row"
-          style="padding-top: 0px; padding-bottom: 30px"
+          style="padding-top: 0px; padding-bottom: 10px"
         >
           <div style="color: white; text-align: left; width: 25%; float: left">
             <div>
               <h4>Contact Us:</h4>
-              <a
+              <a id="ucce" style="display: none"
                 class="footLink"
                 href="mailto:slarson@ucanr.edu"
                 target="_blank"
-                >Dr. Stephanie Larson, UCCE</a
-              ><br />
+                >Dr. Stephanie Larson, UCCE<br/></a>
               <a
                 class="footLink"
                 href="mailto:khenifin@pepperwoodpreserve.org"
@@ -243,44 +210,48 @@
                 >Kai Henifin, Pepperwood</a
               >
             </div>
-            <div id="fb-root"></div>
-            <script
-              async
-              defer
-              crossorigin="anonymous"
-              src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"
-              nonce="81D1SCR8"
-            ></script>
-            <div
-              class="fb-share-button"
-              data-href="https://wildfirefuelmapper.org/"
-              data-layout="button_count"
-              data-size="small"
-            >
-              <a
-                target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwildfirefuelmapper.org%2F&amp;src=sdkpreparse"
-                class="fb-xfbml-parse-ignore"
-                >Share</a
-              >
-            </div>
-            <div style="margin-top: 5px">
-              <a
-                href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                class="twitter-share-button"
-                data-show-count="false"
-                >Tweet</a
-              >
+            <span>
+              <div id="fb-root"></div>
               <script
                 async
-                src="https://platform.twitter.com/widgets.js"
-                charset="utf-8"
+                defer
+                crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"
+                nonce="81D1SCR8"
               ></script>
-            </div>
+              
+              <div style="display: flex; justify-content: left; align-items: left;">
+                <div
+                  class="fb-share-button"
+                  data-href="https://wildfirefuelmapper.org/"
+                  data-layout="button_count"
+                  data-size="small"
+                >
+                  <a
+                    target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwildfirefuelmapper.org%2F&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore"
+                  >Share</a>
+                </div>
+                <div style="margin-left: 5px; margin-top:3px;">
+                  <a
+                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                    class="twitter-share-button"
+                    data-show-count="false"
+                  >Tweet</a>
+                  <script
+                    async
+                    src="https://platform.twitter.com/widgets.js"
+                    charset="utf-8"
+                  ></script>
+                </div>
+              </div>
+              
+          </span>
           </div>
           <img
             src="assets/images/LogoPanel_Wide.png"
-            height="100px"
+            height="75px"
             style="float: right; margin-top: 10px"
           />
           <div style="color: white; width: 50%; float: right; margin-top: 10px">
@@ -370,10 +341,21 @@
         $("#frame1").attr("src", z[0].URL);
         $("#frame2").attr("src", z[1].URL);
         $("#support1").html(z[11].URL);
+        $("#language1").html(z[12].URL);
       }
 
+      function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+
       $(document).ready(function () {
-        progArea = getQueryVariable("id");
+        progArea = toTitleCase(getQueryVariable("id"));
+        if (progArea == "Sonoma"){$("#ucce").show()}
         console.log(progArea);
 
         $(".countyname").text(progArea);
