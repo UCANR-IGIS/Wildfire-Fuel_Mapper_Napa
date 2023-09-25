@@ -209,33 +209,20 @@
                     <div class="col-sm-4">
                       <div class="mbr-buttons btn-inverse mbr-buttons--left">
                         <a
-                          id="link1"
-                          class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                          href=""
-                          target="_blank"
-                          >Defensible Space<br />Basics <br /></a
+                          id="link1"></a>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="mbr-buttons btn-inverse mbr-buttons--left">
+                        <a
+                          id="link2"></a
                         >
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="mbr-buttons btn-inverse mbr-buttons--left">
                         <a
-                          id="link2"
-                          class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                          href=""
-                          >Get Custom<br />Map Reports</a
-                        >
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="mbr-buttons btn-inverse mbr-buttons--left">
-                        <a
-                          id="link3"
-                          class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay"
-                          href=""
-                          target="_blank"
-                          ><span></span> Community<br/>Wildfire Plan</a
-                        >
+                          id="link3"></a>
                       </div>
                     </div>
                   </div>
@@ -404,9 +391,9 @@
       function geturls() {
         $("#Image1").css("background-image", "url(" + z[3].URL + ")");
         $("#Video1").attr("src", z[2].URL);
-        $("#link1").attr("href", z[8].URL);
-        $("#link2").attr("href", z[9].URL);
-        $("#link3").attr("href", z[10].URL);
+        $("#link1").html(z[8].URL);
+        $("#link2").html(z[9].URL);
+        $("#link3").html(z[10].URL);
         $("#support1").html(z[11].URL);
         //$("#support1").attr("text", z[11].URL);
       }
