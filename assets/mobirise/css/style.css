@@ -1012,11 +1012,11 @@ html {
 }
 
 .mbr-hero__text {
-    font-size: 46px;
+    font-size: 4vh;
     font-weight: bold;
     left: -2px;
     letter-spacing: 2px;
-    line-height: 50px;
+    line-height: 4vh;
     margin: -18px 0 1px 0;
     padding-bottom: 41px;
     position: relative;
@@ -1024,8 +1024,8 @@ html {
 }
 
 .mbr-hero__subtext {
-    font-size: 21px;
-    line-height: 29px;
+    font-size: 2vh;
+    line-height: 2vh;
     margin: -32px 0 3px 0;
     padding: 0 0 41px 0;
     position: relative;
@@ -2149,4 +2149,9 @@ html {
 #row-main {
     /* necessary to hide collapsed sidebar */
     overflow-x: hidden;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    font-size: 1.5vh !important;
+    padding: 5px 10px
 }
