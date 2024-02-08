@@ -347,6 +347,9 @@
       $(document).ready(function () {
         progArea = toTitleCase(getQueryVariable("id"));
         if (progArea == "Sonoma"){$("#ucce").show()}
+        if (progArea == "Contra%20costa") {
+        progArea = "Contra Costa"
+      }
         console.log(progArea);
 
         $(".countyname").text(progArea);
