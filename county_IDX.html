@@ -240,7 +240,7 @@
       var items = [];
 
       $.getJSON(
-        "https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
+        "https://sheets.googleapis.com/v4/spreadsheets/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
         function (data) {
           $.each(data.values, function (key, val) {
             //if (key > 0) {
@@ -295,6 +295,9 @@
       progArea = toTitleCase(getQueryVariable("id"));
       if (progArea == "Sonoma") {
         $("#ucce").show()
+      }
+      if (progArea == "Contra%20costa") {
+        progArea = "Contra Costa"
       }
 
       function getQueryVariable(variable) {

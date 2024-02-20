@@ -444,7 +444,7 @@
         var items = [];
 
         $.getJSON(
-          "https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
+          "https://sheets.googleapis.com/v4/spreadsheets/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
           function (data) {
             $.each(data.values, function (key, val) {
               t = {
@@ -475,6 +475,9 @@
       $(document).ready(function () {
         progArea = toTitleCase(getQueryVariable("id"));
         if (progArea == "Sonoma"){$("#ucce").show()}
+        if (progArea == "Contra%20costa") {
+        progArea = "Contra Costa"
+      }
 
         function getQueryVariable(variable) {
           var query = window.location.search.substring(1);
@@ -510,7 +513,10 @@
         } else if (progArea == "Napa") {
           link1href = "https://igis.ucanr.edu/";
           link2href = "https://igis.ucanr.edu/";
-        }
+        } else {
+        link1href = "https://igis.ucanr.edu/";
+        link2href = "https://igis.ucanr.edu/";
+      }
 
         $("#link1").attr("href", link1href);
         $("#link2").attr("href", link2href);
@@ -530,7 +536,7 @@
         var items = [];
 
         $.getJSON(
-          "https://sheets.googleapis.com/v4/spreadsheets/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
+          "https://sheets.googleapis.com/v4/spreadsheets/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/values/Web%20Apps?alt=json&key=AIzaSyCV9hw-cGIRaroJV-VwDT7p95yUQg7xx4s",
           function (data) {
             $.each(data.values, function (key, val) {
               t = {
@@ -557,7 +563,7 @@
       function getSpecialists() {
         var items = [];
         $.getJSON(
-          "https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/2/public/values?alt=json",
+          "https://spreadsheets.google.com/feeds/list/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/2/public/values?alt=json",
           function (data) {
             $.each(data.feed.entry, function (key, val) {
               t = {
@@ -583,7 +589,7 @@
       function getFunding() {
         var items = [];
         $.getJSON(
-          "https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/3/public/values?alt=json",
+          "https://spreadsheets.google.com/feeds/list/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/3/public/values?alt=json",
           function (data) {
             $.each(data.feed.entry, function (key, val) {
               t = {
@@ -606,7 +612,7 @@
       function getLearn() {
         var items = [];
         $.getJSON(
-          "https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/4/public/values?alt=json",
+          "https://spreadsheets.google.com/feeds/list/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/4/public/values?alt=json",
           function (data) {
             $.each(data.feed.entry, function (key, val) {
               t = {
@@ -625,7 +631,7 @@
       function getData() {
         var items = [];
         $.getJSON(
-          "https://spreadsheets.google.com/feeds/list/1wA0HRAPB3RHgDt7F4piUPTZtwcvQv3PnTrwbvAtqL2w/5/public/values?alt=json",
+          "https://spreadsheets.google.com/feeds/list/170QPsImJ9qkvjFmLN6GlGntRx-9tNQRtmim7Lg4Pvpo/5/public/values?alt=json",
           function (data) {
             $.each(data.feed.entry, function (key, val) {
               t = {
