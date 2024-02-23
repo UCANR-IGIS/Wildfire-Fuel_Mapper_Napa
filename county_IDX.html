@@ -99,6 +99,7 @@
     id="Image1" style="
         background-image: url(assets/images/background.jpg);
         background-position: bottom;
+        background-size: cover;
       ">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-left mbr-after-navbar">
       <div class="mbr-box__container mbr-section__container container">
@@ -124,10 +125,7 @@
                       land managers reduce fire fuel hazard.</i>
                   </p>
                 </div>
-                <div>
-                  <iframe id="Video1" width="470" height="250" src="" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <div id="homeMedia">
                 </div>
                 <div class="row">
                   <div class="col-sm-4">
@@ -275,7 +273,7 @@
 
     function geturls() {
       $("#Image1").css("background-image", "url(" + z[3].URL + ")");
-      $("#Video1").attr("src", z[2].URL);
+      $("#homeMedia").append(z[2].URL);
       $("#link1").html(z[8].URL);
       $("#link2").html(z[9].URL);
       $("#link3").html(z[10].URL);
