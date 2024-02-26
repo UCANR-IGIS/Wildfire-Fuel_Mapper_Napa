@@ -20,16 +20,27 @@
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-        <style>
-            .mbr-after-navbar:before {
-          content: "";
-          display: block;
-          height:   0px;
-            }
-            .mbr-box__container {
-            height: 60%;}
-        </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+    <style>
+        .mbr-after-navbar:before {
+            content: "";
+            display: block;
+            height: 0px;
+        }
+
+        .mbr-box__container {
+            height: 60%;
+        }
+
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 50vh;
+            width: 60%;
+        }
+    </style>
 </head>
+
 <body>
     <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse"
         id="ext_menu-0">
@@ -76,34 +87,8 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-sm-offset-6 svg-container">
-                                <svg viewBox="0 0 1236 716" class="svg-content">
-                                    <g id="wfm2" inkscape:groupmode="layer" inkscape:label="wfm2">
-                                        <g id="g13">
-                                            <g id="wfm2_1" inkscape:label="Napa" style="fill:#a05a2c">
-                                                <a xlink:href="county_idx.html?id=Napa" id="a6"
-                                                    style="fill:#a05a2c; text-decoration: none;">
-                                                    <path
-                                                        d="m 724,265 1,-3 v -1 l 2,-2 2,-3 -1,-1 1,-1 1,-1 2,-2 1,-1 v -3 l 4,-3 -2,-3 -2,-1 v -8 l 4,-6 1,-3 2,-2 1,-12 -3,-3 24,-7 73,-19 14,-4 26,-40 8,-13 9,-4 -4,-3 -1,-8 h -1 l 10,-16 12,2 5,-12 -6,-15 -14,-19 v -1 l 6,-7 1,2 1,2 2,3 1,1 2,2 v 1 l 3,3 h 2 l 2,2 1,1 1,1 3,1 3,2 5,3 3,2 h 1 l 3,-5 1,-1 h 3 l 2,-1 2,1 h 2 l 2,-3 h 2 l 2,2 2,3 1,1 6,-1 2,-1 h 1 v 2 l 4,1 h 4 l 2,-1 v 2 l 1,4 2,4 1,3 2,3 1,3 v 1 l 1,4 v 3 l 3,4 v 2 l 2,1 1,4 2,3 v 2 l 2,1 v 3 l 1,1 v 1 l 1,2 1,6 1,2 v 2 2 l 1,8 h 1 l -1,3 2,2 v 3 h 2 l 1,3 1,2 1,1 3,2 v 1 l 1,1 v 1 l 1,2 1,2 v 1 l 1,1 1,2 1,1 -1,1 2,3 -1,1 h -2 l 2,10 2,4 -1,4 1,3 2,1 2,1 2,1 1,-1 v -1 l 1,1 1,-1 1,2 2,2 2,2 -1,2 2,3 -1,2 -1,2 -1,1 3,3 1,4 3,3 1,2 3,3 3,3 v -1 h 3 l 2,-1 2,2 3,1 1,3 1,3 1,2 v 2 l -1,1 -1,1 v 1 l 1,2 2,2 -1,3 -2,1 h -1 l -1,1 h -1 v 2 2 l 1,1 v 4 l 1,2 3,-2 h 1 l 2,-2 2,-1 1,-1 1,-1 1,1 -1,2 1,1 2,2 1,3 1,3 1,2 h 2 v 1 l 2,3 v 2 l 2,5 -1,2 2,3 1,1 1,3 v 3 3 1 2 l 1,1 3,11 1,2 v 4 l 1,4 1,4 1,5 1,2 -1,3 v 1 l 1,1 1,2 -1,1 1,2 v 2 l 2,1 v 2 l 3,4 1,3 v 1 l -2,3 -1,12 1,1 v 2 l -2,4 -2,8 -1,1 -1,1 -5,18 -2,5 -2,10 -1,1 v 5 l 1,5 h 1 l 3,5 1,3 h 2 v 2 l 2,2 1,2 v 2 l 2,2 5,8 1,1 3,4 2,2 1,1 2,4 v 1 l 5,13 h 1 l 2,3 v 2 l 2,6 v 4 2 1 l 1,3 2,6 2,-1 1,4 v 2 l -1,2 h -1 l -1,1 -1,2 -1,2 2,2 v 1 l -47,-1 -19,-1 h -12 -8 -4 -6 v 1 l 2,3 1,2 v 2 l -1,2 3,2 v 1 l -2,3 -1,3 1,1 v 2 l 2,4 1,1 v 2 l 2,1 2,3 v 1 l 1,4 h -5 l -1,-1 h -2 l -4,1 -1,-1 h -2 -1 l -3,5 v 4 l 2,2 4,1 h 1 l 2,-1 4,1 3,2 -1,2 v 1 l -1,2 h -3 v 1 h -3 l -1,-1 -2,-1 -1,-1 -1,3 1,1 v 3 h 1 2 l 1,3 2,1 3,6 v 1 1 l 1,5 1,1 v 2 l -2,2 v 3 h 1 v 2 1 h -2 l -1,1 -2,-1 -3,3 1,3 -1,1 1,5 h -1 v 2 l -4,3 1,2 -4,1 2,4 -1,3 -1,1 3,3 v 1 l 2,2 h 2 l 1,1 v 2 l 1,1 h 2 1 l 2,3 -1,2 -2,3 1,2 1,1 h -1 -11 -1 -4 -12 -2 l -7,-1 h -1 v 1 l -4,-1 h -1 -1 -2 -3 -14 -1 -1 -1 l -58,-2 h -16 l -2,-1 -1,-1 1,-1 2,-2 h 2 3 8 l 2,1 4,1 1,1 h 2 l 2,-1 1,-1 1,-5 -1,-3 -1,-3 -1,-2 1,-6 2,-1 h 2 l 2,2 1,-1 1,-1 v -4 -2 -2 l -2,-2 v -2 h 2 l 2,1 1,1 2,2 v -1 -2 -3 -1 l -1,-1 -1,-3 -2,-1 -1,-2 -1,-1 1,-1 v -3 -3 l -1,-10 -4,-15 h -3 v 2 h -2 v -2 l -2,-1 v -1 l -1,-1 -1,-2 -2,-1 h -1 l -1,-2 -1,-2 -1,-2 v -3 -3 l 1,-2 v -1 l 1,-2 -1,-1 h -1 l -3,1 v 1 h -2 l -2,-2 -2,-5 -1,-1 2,-3 v -2 -1 l 1,-1 -1,-4 v -1 -2 l -1,-1 1,-2 v -1 l 1,-1 h 2 l 2,-1 -1,-4 -1,-2 -2,-2 -2,-5 -1,-2 h -1 l -1,1 v -5 l -2,-1 -1,-3 v -1 l 1,-2 -1,-2 -3,-1 1,-1 h -1 l -1,1 -1,-1 -2,-5 -2,-1 v -3 h -1 v -2 l -3,-2 -2,-1 -1,-2 -1,-1 -2,-1 -1,1 -2,-1 -2,-1 -2,-2 -1,-3 -2,-1 v -3 l 3,-3 h 2 l 2,-4 -4,-3 v -1 l -4,-4 -4,-2 -3,-6 2,-2 -2,-3 v -2 h -1 l -2,-1 v -2 l -13,-13 h -2 v -1 l 3,-4 v -2 l 2,-3 2,3 2,-5 1,-1 v -2 l 3,-2 v -5 l -2,-3 h -2 l -2,-2 h -2 l -1,-2 -3,1 h -3 l -1,-1 -3,-1 h -1 l 1,-1 -1,-2 v -1 l 1,-2 h 2 l -2,-2 h -2 l -3,-3 h -1 l -2,-1 -2,1 h -1 -3 v -3 l -1,-2 v -2 l -2,-2 -1,-2 -2,-2 v -1 l -1,-2 -1,-3 -2,-3 1,-2 1,-1 2,1 2,-3 -2,-1 -1,-2 -2,-1 v -1 h -1 l -1,-3 -1,-1 1,-1 h 3 v -3 h -2 l 1,-2 v -1 l -2,-1 v -1 h -2 l -2,-3 h -3 l -3,-1 -1,1 h -2 v -3 l -2,-1 v -3 l -3,-5 v -1 l -2,-2 -1,-4 -2,-2 h -2 l -1,-2 -2,-1 -4,-3 h -3 l -2,-2 v -1 l -3,-1 -2,1 h -3 l -4,-1 v -3 l 1,-2 -2,-2 -1,-1 -1,-1 h -2 l -2,1 v -3 -3 l 1,-3 -2,-1 -1,-2 v -3 l -3,-4 -1,-3 -1,-1 -1,-2 -1,-1"
-                                                        id="path2" style="fill:#997C5C" />
-                                                    <text font-family="Times, serif" font-size="50px" x="900"
-                                                        y="375" fill="#ffffff" text-decoration="none"
-                                                        id="text8">Napa</text>
-                                                </a>
-                                            </g>
-                                            <g id="wfm2_2" inkscape:label="Sonoma" style="fill:#a05a2c">
-                                                <a xlink:href="county_idx.html?id=Sonoma" id="a10"
-                                                    style="display:inline;fill:#aa4400; text-decoration: none;">
-                                                    <path
-                                                        d="m 131,99 3,4 2,1 3,4 1,-1 1,-3 1,-4 h 1 l 3,1 1,-1 v -2 l 2,-3 h 1 2 2 v -3 -1 h 1 l 76,4 h 6 l 5,1 1,-26 58,2 7,-1 h 2 l 20,1 h 20 l 45,2 4,-1 1,-26 7,1 h 5 l 25,1 v -7 l 1,-5 12,1 h 21 1 1 l 6,1 8,1 h 6 11 l 23,2 h 4 l 71,2 4,1 h 6 l 1,1 2,-1 v 3 l -1,2 2,1 h 2 l 1,2 -1,2 2,1 v 1 h 3 l 3,-1 1,-2 2,1 v 3 l 1,1 2,3 h 1 l 2,3 h 2 l 2,1 4,4 h 1 l 1,1 1,1 1,3 1,1 -1,1 2,1 3,2 1,2 3,2 4,2 v 1 l 1,3 v 4 l -1,2 v 2 2 l 1,1 2,2 1,2 h 2 l 2,4 -1,1 1,2 1,2 1,1 h 2 l 1,2 v 2 l 3,3 v 2 2 l -1,1 h 2 l 1,3 2,1 v 1 h 2 l 1,1 h 1 l 1,1 v 2 l -1,2 -1,2 1,2 -1,2 1,2 -1,1 1,2 h 2 l 2,1 2,2 v 2 l 2,1 v 3 l 1,1 -1,2 2,3 -1,1 2,1 1,1 3,1 2,1 1,1 h 2 2 l 2,2 h 1 l 2,-2 2,1 h 1 l 2,1 h 1 2 l 2,-1 4,1 h 1 l 1,3 1,4 2,1 v 2 l 2,1 -1,1 v 3 l 2,3 1,1 1,2 1,2 1,1 2,3 1,1 -1,2 v 1 l -1,3 3,3 -1,12 -2,2 -1,3 -4,6 v 8 l 2,1 2,3 -4,3 v 3 l -1,1 -2,2 -1,1 -1,1 1,1 -2,3 -2,2 v 1 l -1,3 1,1 1,2 1,1 1,3 3,4 v 3 l 1,2 2,1 -1,3 v 3 3 l 2,-1 h 2 l 1,1 1,1 2,2 -1,2 v 3 l 4,1 h 3 l 2,-1 3,1 v 1 l 2,2 h 3 l 4,3 2,1 1,2 h 2 l 2,2 1,4 2,2 v 1 l 3,5 v 3 l 2,1 v 3 h 2 l 1,-1 3,1 h 3 l 2,3 h 2 v 1 l 2,1 v 1 l -1,2 h 2 v 3 h -3 l -1,1 1,1 1,3 h 1 v 1 l 2,1 1,2 2,1 -2,3 -2,-1 -1,1 -1,2 2,3 1,3 1,2 v 1 l 2,2 1,2 2,2 v 2 l 1,2 v 3 h 3 1 l 2,-1 2,1 h 1 l 3,3 h 2 l 2,2 h -2 l -1,2 v 1 l 1,2 -1,1 h 1 l 3,1 1,1 h 3 l 3,-1 1,2 h 2 l 2,2 h 2 l 2,3 v 5 l -3,2 v 2 l -1,1 -2,5 -2,-3 -2,3 v 2 l -3,4 v 1 h 2 l 13,13 v 2 l 2,1 h 1 v 2 l 2,3 -2,2 3,6 4,2 4,4 v 1 l 4,3 -2,4 h -2 l -3,3 v 3 l 2,1 1,3 2,2 2,1 2,1 1,-1 2,1 1,1 1,2 2,1 3,2 v 2 h 1 v 3 l 2,1 2,5 1,1 1,-1 h 1 l -1,1 3,1 1,2 -1,2 v 1 l 1,3 2,1 v 5 l 1,-1 h 1 l 1,2 2,5 2,2 1,2 1,4 -2,1 h -2 l -1,1 v 1 l -1,2 1,1 v 2 1 l 1,4 -1,1 v 1 2 l -2,3 1,1 2,5 2,2 h 2 v -1 l 3,-1 h 1 l 1,1 -1,2 v 1 l -1,2 v 3 3 l 1,2 1,2 1,2 h 1 l 2,1 1,2 1,1 v 1 l 2,1 v 2 h 2 v -2 h 3 l 4,15 1,10 v 3 3 l -1,1 1,1 1,2 2,1 1,3 1,1 v 1 3 2 1 l -2,-2 -1,-1 -2,-1 h -2 v 2 l 2,2 v 2 2 4 l -1,1 -1,1 -2,-2 h -2 l -2,1 -1,6 1,2 1,3 1,3 -1,5 -1,1 -2,1 h -2 l -1,-1 -4,-1 -2,-1 h -8 -3 -2 l -2,2 -1,1 1,1 5,12 -1,3 -14,8 -13,10 h -2 -3 l -3,1 v -1 l -4,-1 -18,3 -5,2 v 1 h -2 l -4,-1 h -1 l -1,-2 -2,-2 -2,-2 -2,-6 v -2 l -1,-4 -2,-4 -2,-3 -3,-3 -4,-3 -2,-1 -3,-3 -3,-4 -1,-2 -1,-1 -2,1 h -1 l -4,-1 -1,-1 -1,-2 v -1 l 2,-2 1,-1 2,-2 -1,-1 -2,1 h -2 -3 l -1,-1 v -3 -1 l -2,-2 1,-2 1,-2 -2,-2 -2,-3 h -1 v 1 l 1,1 v 1 l -2,1 -3,-1 -1,-1 -1,-1 -1,-2 -1,1 v -1 h -2 v 1 l -3,1 v -2 l -1,-1 -1,1 -2,1 -2,1 -1,2 -1,2 h -2 -3 -1 l -2,-1 h -3 -1 l -1,-1 h -2 l -2,3 -4,1 -2,-1 -1,-1 -4,-1 h -2 -1 l -2,-2 -5,-3 h -3 v -1 l -2,-2 h -4 l -2,1 -1,-1 h -2 l -2,-2 -3,-2 -1,-1 -1,1 -2,-1 h -1 l -2,-1 h -2 l -2,-2 h -1 l -6,-3 v -1 l -2,-2 -3,-1 -1,-1 h -11 l -6,-5 -25,-24 -9,-8 -2,-1 -6,-6 -11,-10 -8,-8 -8,-7 -14,-12 -16,-15 -1,-2 h -1 l -4,2 h -1 l -1,-2 v -1 l 2,-1 1,-1 -1,-1 h -2 l -1,1 h -3 l -1,2 -2,1 1,1 2,2 -1,2 -3,2 -1,-1 v -2 l -1,-1 h -2 l -3,1 -2,1 h -1 v -1 l 2,-1 v -1 h -1 l -1,1 -2,1 -2,-1 -3,1 -2,-1 -1,-1 h -2 l -1,-1 -3,-2 -4,-1 v 1 l -1,2 -1,3 h -1 l -3,-1 h -1 -3 l -1,1 -1,2 h -2 l -3,2 -1,-1 h -1 v 2 3 1 l -3,1 -2,1 -1,1 -1,-1 -13,-12 -10,-3 h -4 l -4,2 -2,4 v 2 l 1,1 -1,3 -4,1 -3,-4 -7,-14 -2,-2 -1,-3 3,1 4,-10 h 1 v -3 -16 -3 l -4,-8 -2,-4 v -1 l -2,-2 v -2 l -1,-4 -1,-6 -6,-3 -1,1 h -1 l 1,-5 -2,-6 -2,-7 -1,-1 -4,-5 -2,-1 -2,-2 -1,-4 -3,-1 v -7 l -1,-3 h -3 l 1,-2 v -1 l -1,-4 v -1 l -5,-4 h -1 l -4,-1 -1,-3 -7,-5 -1,-2 -3,-1 -3,-6 -13,-10 -8,-5 -2,-3 -5,-1 -4,-3 h -3 l -3,-1 -5,-2 -2,-4 -1,-2 -4,-1 -2,-2 -4,2 -2,-2 v -3 l -3,-1 -5,-6 -1,-1 -1,-1 1,-2 v -2 l -4,-2 -3,1 v -4 h -3 l -2,-4 -3,-1 -4,-2 -1,-1 -2,-2 -3,-2 v -3 l -3,-3 -4,-3 -4,-2 -1,-2 -4,-3 -1,1 -5,-6 v -5 l 1,-4 -3,-6 -4,-6 -3,-2 -2,2 -2,-2 -1,-2 -4,-2 -3,-4 h 3 l 1,-3 -1,-2 -4,-2 -3,-6 -8,-8 2,-1 -1,-3 -3,-1 1,-2 -5,-7 -1,-2 -3,-4 -1,-1 2,-1 -2,-3 v -2 l -5,-5 1,-2 -3,-4 -3,-1 -7,-6 2,-1 v -3 l -2,-3 -2,-5 -1,-2 -1,-1 -2,-1 -1,-1 -1,-1 -4,-4 v -2 -1 l -1,-1 -3,-5 -4,-2 -1,-1 h -2 l -2,-1 -3,-3 -2,-2 -2,-1 -3,-3 v -1 l -2,-3 -4,-2 -6,-3 -2,1 -3,-2 -1,-2 -2,-3 -1,-1 h -2 l -2,-3 2,-1 -2,-3 -2,-2 v -4 l -1,-4"
-                                                        id="path7" style="fill:#C17236" />
-                                                    <text font-family="Times, serif" font-size="50px" x="475"
-                                                        y="350" fill="#ffffff" text-decoration="none"
-                                                        id="text14">Sonoma</text>
-                                                </a>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
+                                <div id="viewDiv">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -122,11 +107,8 @@
                     <h4>Contact Us:</h4>
                     <a class="footLink" href="mailto:slarson@ucanr.edu" target="_blank">Dr. Stephanie Larson,
                         UCCE</a><br />
-                        <a
-                        class="footLink"
-                        href="mailto:khenifin@pepperwoodpreserve.org"
-                        target="_blank"
-                        >Kai Henifin, Pepperwood</a>
+                    <a class="footLink" href="mailto:khenifin@pepperwoodpreserve.org" target="_blank">Kai Henifin,
+                        Pepperwood</a>
                 </div>
                 <img src="assets/images/LogoPanel_Wide.png" height="75px" style="float:right; margin-top: 10px">
                 <div style="color: white; width: 50%; float: right; margin-top: 10px">
@@ -139,7 +121,7 @@
                             class="footLink" href="http://www.fltfoundation.org/index.html" target="_blank">Thornton
                             Foundation</a>, <a class="footLink" href="https://www.fire.ca.gov/" target="_blank">CAL
                             FIRE</a> and <a class="footLink" href="https://napafirewise.org/" target="_blank">Napa
-                                Firewise Foundation</a>.</p>
+                            Firewise Foundation</a>.</p>
 
                 </div>
 
@@ -161,7 +143,6 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-99560076-15', 'auto');
         ga('send', 'pageview');
-
     </script>
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -172,6 +153,117 @@
 <![endif]-->
     <script src="assets/mobirise/js/script.js"></script>
     <script src="assets/formoid/formoid.min.js"></script>
+    <script src="https://js.arcgis.com/4.25/"></script>
+
+    <script>
+        var countyName,
+            view
+        require(["esri/config", "esri/WebMap", "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer",
+            "esri/core/reactiveUtils", "esri/Graphic", "esri/geometry/Point", "esri/geometry/Polygon",
+            "esri/widgets/Legend", "esri/widgets/Home", "esri/Viewpoint", "esri/rest/support/Query"
+        ], function (
+            esriConfig, WebMap, Map, MapView, FeatureLayer, reactiveUtils, Graphic, Point, Polygon, Legend,
+            Home, Viewpoint, Query) {
+
+            esriConfig.apiKey =
+                "AAPK81f0d351c3594c2b8cd4832bde9a5807jQ1T-g3D3qxEvv_NMG7d29O7RjEFW3zUK5A325tz4uSUmfCc2C5GJ8NOi4-35lN-";
+
+            const webmap = new WebMap({
+                portalItem: {
+                    // autocasts as new PortalItem()
+                    id: "cfb19b5578e4407b816df9bf4e9eeaa9"
+                }
+            });
+
+            view = new MapView({
+                map: webmap,
+                container: "viewDiv",
+                constraints: {
+                    snapToZoom: false
+                }
+            });
+
+            view.ui.remove(["attribution", "zoom"]);
+
+            function stopEvtPropagation(event) {
+                event.stopPropagation();
+            }
+
+            // disable mouse wheel scroll zooming on the view
+            view.on("mouse-wheel", stopEvtPropagation);
+
+            // disable zooming via double-click on the view
+            view.on("double-click", stopEvtPropagation);
+
+            // disable zooming out via double-click + Control on the view
+            view.on("double-click", ["Control"], stopEvtPropagation);
+
+            // disables pinch-zoom and panning on the view
+            view.on("drag", stopEvtPropagation);
+
+            // disable the view's zoom box to prevent the Shift + drag
+            // and Shift + Control + drag zoom gestures.
+            view.on("drag", ["Shift"], stopEvtPropagation);
+            view.on("drag", ["Shift", "Control"], stopEvtPropagation);
+
+            // prevents zooming with the + and - keys
+            view.on("key-down", (event) => {
+                const prohibitedKeys = [
+                    "+",
+                    "-",
+                    "Shift",
+                    "_",
+                    "=",
+                    "ArrowUp",
+                    "ArrowDown",
+                    "ArrowRight",
+                    "ArrowLeft"
+                ];
+                const keyPressed = event.key;
+                if (prohibitedKeys.indexOf(keyPressed) !== -1) {
+                    event.stopPropagation();
+                }
+            });
+
+            reactiveUtils.whenOnce(() => !view?.updating).then( () => {
+                    console.log(view.layerViews.items[0].layer.fullExtent);
+                    view.layerViews.items[0].layer.queryExtent().then(function (response) {
+                // go to the extent of all the graphics in the layer view
+                view.goTo(response.extent);
+            });
+            })
+        
+
+            view.on("click", (event) => {
+                // only include graphics from hurricanesLayer in the hitTest
+                const opts = {
+                    include: view.layerViews.items[0].layer
+                }
+                let symbol = {
+                    type: "simple-fill", // autocasts as new SimpleFillSymbol()
+                    color: [0, 255, 255, 0.2],
+                    style: "solid",
+                    outline: { // autocasts as new SimpleLineSymbol()
+                        color: [0, 255, 255, 1],
+                        width: 1
+                    }
+                };
+                view.hitTest(event, opts).then((response) => {
+                    // check if a feature is returned from the hurricanesLayer
+                    if (response.results.length) {
+                        const graphic = response.results[0].graphic;
+                        graphic.symbol = symbol
+                        countyName = graphic.attributes.name
+
+                        view.graphics.removeAll()
+                        view.graphics.add(graphic)
+
+                        location.href = "county_IDX.html?id=" + countyName
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </body>
