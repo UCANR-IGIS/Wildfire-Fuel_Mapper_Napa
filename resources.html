@@ -414,7 +414,8 @@
   <script src="assets/mobirise/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
   <script>
-    var progArea;
+    var progArea,
+        specFlag
 
     function toTitleCase(str) {
       return str.replace(
@@ -426,6 +427,7 @@
     }
     $(document).ready(function () {
       progArea = toTitleCase(getQueryVariable("id"));
+      spcFlag = getQueryVariable("spec");
       if (progArea == "Sonoma") {
         $("#ucce").show()
       }
@@ -470,6 +472,9 @@
 
       $("#link1").attr("href", link1href);
       $("#link2").attr("href", link2href);
+      if (spcFlag == 'y') {
+        $("#collapseOne").collapse('toggle')
+      } 
     });
   </script>
   <script>
