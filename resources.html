@@ -415,7 +415,8 @@
   <script src="assets/formoid/formoid.min.js"></script>
   <script>
     var progArea,
-        specFlag
+        specFlag,
+        fundFlag
 
     function toTitleCase(str) {
       return str.replace(
@@ -428,6 +429,7 @@
     $(document).ready(function () {
       progArea = toTitleCase(getQueryVariable("id"));
       spcFlag = getQueryVariable("spec");
+      fundFlag = getQueryVariable("fund");
       if (progArea == "Sonoma") {
         $("#ucce").show()
       }
@@ -474,6 +476,9 @@
       $("#link2").attr("href", link2href);
       if (spcFlag == 'y') {
         $("#collapseOne").collapse('toggle')
+      } 
+      if (fundFlag == 'y') {
+        $("#collapseTwo").collapse('toggle')
       } 
     });
   </script>
