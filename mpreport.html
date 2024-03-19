@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vegetation Fuels - Lake Sonoma</title>
+  <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link id="theme" rel="stylesheet" href="">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box header">
+      <div class="ftHeading">
+        <img class="logo" src="img/favicon.png" height="50"><span style="color: rgb(241, 89, 42)">WILDFIRE FUEL</span> TREATMENT REPORT
+      </div>
+    </div>
+    <div class="box content" id="viewDiv2"></div>
+    <div class="box sidebar scrollbar" style="overflow-y: auto">
+      <div class="parcel">
+        <!--<h2 class="indent">Fuel Treatment Report</h2>
+                    <p class="indent" id="apnText"></p>
+                    <p class="indent" id="areaText"></p>
+                    <p class="indent" id="wsText"></p><br/>
+                </div> -->
+        
+        <div id="accordion">
+          <h3 id="Sec1">Step 1: Select Your Parcel(s)</h3>
+          <div>
+            <p class="indent">Navigate to your parcel on the map and click to select or use the search bar to select by
+              address or APN. Multiple parcels may be selected.</p>
+            <p class="indent" id="apnText"></p>
+            <div class='divButton' id="resetSelect">Reset Parcel Selection</div>
+
+          </div>
+          <h3 id="Sec6">Step 2: Select Your Maps</h3>
+          <div id="vegDetail" class="vegDetail scrollbar">
+            <p class="indent">Select the maps you would like for the report.</p>
+            <ul id="mapList" class="list-group indent">
+
+            </ul>
+          </div>
+
+          <h3 id="Sec5">Step 3: Generate A Fuel Treatment Report</h3>
+          <div id="fuel" class="fuel scrollbar indent">
+            <label for="exampleInputEmail1" >Email address</label>
+            <input type="email" name="mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter email"><br>
+            <p>Based on your planned treatment areas, you can create a PDF report summarizing available
+              datasets, including fuel types, associated treatment costs, vegetation, topography, and additional
+              environmental and jurisdictional information. This report will have much of the information needed to
+              apply for fuels reduction grants.</p>
+            <p>Click the button to generate your PDF report. You will receive an email with a link to the
+              PDF within 5-10 minutes.</p>
+            <div class='divButton' id='report' date-theme="css/print.css">Generate Report</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box footer"><span style="float: right; padding-right: 10px">Tool created by <a href="https://ucanr.edu" target="_blank">UCANR</a>, <a href="https://igis.ucanr.edu" target="_blank">IGIS</a></span></span></div>
+    <div class="modal fade" id="loadModal" tabindex="-1" role="dialog" aria-labelledby="loadModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loadModalLabel"></h5>
+            </div>
+            <div id="loadBody" class="modal-body">
+              Thank you for submitting your report request. You will receive an email with a link to the
+              PDF within 5-10 minutes.
+            </div>
+            <div id="loadFoot" class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="loadClose" data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alasql@0.5"></script>
+  <script src="https://js.arcgis.com/4.15/"></script>
+  <script src="js/treatmentData.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

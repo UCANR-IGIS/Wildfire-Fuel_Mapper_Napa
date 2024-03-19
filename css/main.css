@@ -3,6 +3,10 @@ html {
     --thumbBG: #003c61;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 .scrollbar::-webkit-scrollbar {
     width: 11px;
 }
@@ -23,7 +27,8 @@ html {
 }
 
 .indent {
-    padding-left: 5px
+    margin-left: 15px;
+    margin-right: 15px
 }
 
 .sidebar {
@@ -54,6 +59,8 @@ html {
 
 .footer {
     grid-area: footer;
+    background-color: rgb(109, 111, 113);
+    height: 25px;
 }
 
 .veg {
@@ -71,6 +78,13 @@ html {
 
 .parcel {
     grid-area: parcel;
+    
+}
+
+.ftHeading {
+    color: white;
+    font-weight: 800 !important;
+    font-size: 1.35vw;
 }
 
 .prior {
@@ -99,35 +113,33 @@ html {
         "fuel"
         "prior"
         "footer";
+    width: 100vw;
+    height: 100vh;
 }
 
 .wrapper {
     display: grid;
     grid-gap: 0em;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
-        "sidebar content content";
-    height: 90.2vh
+        "header  header  header"
+        "sidebar content content"
+        "footer  footer  footer";
 }
 
 .sidebar {
     grid-area: sidebar;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto;
     grid-gap: 1em;
     grid-template-areas:
-        "parcel"
-        "veg"
-        "fuel"
-        "prior";
+        "parcel";
 }
 
-.header,
-.footer {
-    background-color: #003c61;
-    height: 25px;
+.header{
+    background-color: rgb(44,44,44);
 }
 
 .sidebar2 {
@@ -199,41 +211,16 @@ html {
 
 .divButton {
     padding: 2px 10px;
-    border: solid #707070 1px;
-    font-family: caption;
+    border: solid rgb(241, 90, 41) 1px;
+    color: white;
     font-size: 14px;
-    background: grey;
-    display: inline;
+    background-color: rgb(241, 90, 41);
     border-radius: 2px;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F2F2F2), color-stop(1, #CFCFCF));
-    background-image: -o-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
-    background-image: -moz-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
-    background-image: -webkit-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
-    background-image: -ms-linear-gradient(bottom, #F2F2F2 0%, #CFCFCF 100%);
-    background-image: linear-gradient(to bottom, #F2F2F2 0%, #CFCFCF 100%);
     cursor: default;
     text-align: center;
-}
-
-.divButton:hover {
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EAF6FD), color-stop(1, #A7D8F5));
-    background-image: -o-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
-    background-image: -moz-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
-    background-image: -webkit-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
-    background-image: -ms-linear-gradient(bottom, #EAF6FD 0%, #A7D8F5 100%);
-    background-image: linear-gradient(to bottom, #EAF6FD 0%, #A7D8F5 100%);
-    border: #3c7fb1 solid 1px;
-}
-
-.divButton:active {
-    border: solid #2c628b 1px;
-    padding: 2px 9px 2px 11px;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E5F4FC), color-stop(0.5, #C4E5F6), color-stop(0.51, #98D0EF), color-stop(1, #68B3DB));
-    background-image: -o-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
-    background-image: -moz-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
-    background-image: -webkit-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
-    background-image: -ms-linear-gradient(bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
-    background-image: linear-gradient(to bottom, #E5F4FC 0%, #C4E5F6 50%, #98D0EF 51%, #68B3DB 100%);
+    margin:0 auto;
+    display:block;
+    width: 50%
 }
 
 .inActive {
@@ -259,19 +246,39 @@ html {
     margin: 0 !important
 }
 .ui-accordion-content-active {
-    padding: 4px 0px !important
+    padding: 10px 0px !important
 }
-.svg-container { 
-	display: block;
-	position: relative;
-	width: 100%;
-	//padding-bottom: 100%; 
-	vertical-align: middle; 
-	overflow: hidden; 
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid rgb(109, 111, 113);
+    background: rgb(109, 111, 113);
+    font-weight: normal;
+    color: #ffffff;
 }
-.svg-content { 
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
+
+.ui-widget-content {
+    border: 0;
+    background: #ffffff;
+    color: #777;
+}
+
+.ui-accordion .ui-accordion-header {
+    margin: 0
+}
+
+.ui-accordion-header .ui-corner-top .ui-state-default .ui-accordion-icons .ui-accordion-header-collapsed .ui-corner-all {
+    background-color: rgb(172, 175, 179);
+    color: rgb(77, 78, 80)
+}
+
+.list-group-item {
+    border: 0
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-bottom, .ui-corner-left{
+    border-radius: 0
+}
+
+.logo {
+    padding: 5px 10px !important
 }
