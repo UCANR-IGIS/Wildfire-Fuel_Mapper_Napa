@@ -38,6 +38,9 @@ body {
 .content {
     grid-area: content;
 }
+.radioBtn {
+    grid-area: radioBtn;
+}
 
 .content2 {
     grid-area: content2;
@@ -121,9 +124,10 @@ body {
     display: grid;
     grid-gap: 0em;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
         "header  header  header"
+        "radioBtn content content"
         "sidebar content content"
         "footer  footer  footer";
 }
@@ -281,4 +285,13 @@ body {
 
 .logo {
     padding: 5px 10px !important
+}
+.parcelInfo {
+    margin: 5px
+}
+.mapType {
+    padding: 5px
+}
+.radio-inline {
+    padding: 5px
 }
