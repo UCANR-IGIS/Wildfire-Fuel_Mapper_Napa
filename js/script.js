@@ -11,6 +11,10 @@ $(document).ready(function () {
 
     county = toTitleCase(getQueryVariable("id"));
 
+    $('#Sec1').hide()
+            $('#Sec5').hide()
+            $('#Sec6').hide()
+
     $("#Sec5").css("pointer-events", "none");
     $("#Sec5").addClass("inActive");
     $("#Sec6").css("pointer-events", "none");
@@ -42,6 +46,7 @@ $(document).ready(function () {
         parcelURL = 'https://services.arcgis.com/0xnwbwUttaTjns4i/ArcGIS/rest/services/SonomaBaseData/FeatureServer'
         webmapID1 = '10553bd512be4a41af9ca4f18378a2f6'
         webmapID2 = '46aa11afd9d7477d9f39ed059b5d88d0'
+        $('#mpRad').attr("disabled",true);
     }
     if (county == 'Napa') {
         $('#mapList').append(napaMaps)
@@ -387,12 +392,8 @@ require([
         apnWhere = '';
         //FM.renderer = renderer;
         graphicsFM.removeAll();
-        $("#Sec2").css("pointer-events", "none");
-        $("#Sec2").addClass("inActive");
-        $("#Sec3").css("pointer-events", "none");
-        $("#Sec3").addClass("inActive");
-        $("#Sec4").css("pointer-events", "none");
-        $("#Sec4").addClass("inActive");
+        $("#Sec5").css("pointer-events", "none");
+        $("#Sec5").addClass("inActive");
         $("#Sec6").css("pointer-events", "none");
         $("#Sec6").addClass("inActive");
         $('#apnText').empty();
@@ -408,12 +409,12 @@ require([
         apnWhere = '';
         //FM.renderer = renderer;
         graphicsFM.removeAll();
-        $("#Sec2").css("pointer-events", "none");
+        /* $("#Sec2").css("pointer-events", "none");
         $("#Sec2").addClass("inActive");
         $("#Sec3").css("pointer-events", "none");
         $("#Sec3").addClass("inActive");
         $("#Sec4").css("pointer-events", "none");
-        $("#Sec4").addClass("inActive");
+        $("#Sec4").addClass("inActive"); */
         $("#Sec6").css("pointer-events", "none");
         $("#Sec6").addClass("inActive");
         $('#apnText').empty();
@@ -448,20 +449,24 @@ require([
         if ($(this).attr('value') == 'single') {
             $('#viewDiv2').hide()
             $('#viewDiv3').hide()
-            $('#scroll2').hide()
+            $('#Sec1').hide()
+            $('#Sec5').hide()
+            $('#Sec6').hide()
             $('#viewDiv').show()
-            $('#scroll1').show()
+            $('#Sec2').show()
+            $('#Sec3').show()
+            $('#Sec4').show()
             apnArr = [];
             apnText = '';
             apnWhere = '';
             //FM.renderer = renderer;
             graphicsFM.removeAll();
-            $("#Sec2").css("pointer-events", "none");
+         /*    $("#Sec2").css("pointer-events", "none");
             $("#Sec2").addClass("inActive");
             $("#Sec3").css("pointer-events", "none");
             $("#Sec3").addClass("inActive");
             $("#Sec4").css("pointer-events", "none");
-            $("#Sec4").addClass("inActive");
+            $("#Sec4").addClass("inActive"); */
             $("#Sec6").css("pointer-events", "none");
             $("#Sec6").addClass("inActive");
             $('#apnText').empty();
@@ -472,17 +477,25 @@ require([
         if ($(this).attr('value') == 'multi') {
             $('#viewDiv').hide()
             $('#viewDiv3').hide()
-            $('#scroll1').hide()
+            $('#Sec2').hide()
+            $('#Sec3').hide()
+            $('#Sec4').hide()
             $('#viewDiv2').show()
-            $('#scroll2').show()
+            $('#Sec1').show()
+            $('#Sec5').show()
+            $('#Sec6').show()
 
         }
         if ($(this).attr('value') == 'water') {
             $('#viewDiv').hide()
             $('#viewDiv2').hide()
-            $('#scroll2').hide()
+            $('#Sec1').hide()
+            $('#Sec5').hide()
+            $('#Sec6').hide()
             $('#viewDiv3').show()
-            $('#scroll1').show()
+            $('#Sec2').show()
+            $('#Sec3').show()
+            $('#Sec4').show()
 
         }
     });
@@ -532,7 +545,11 @@ require([
 
             view2.goTo({
                 target: graphicsFM.graphics
-            });
+            }).then(function(response) {
+                var zoomView = {};
+                zoomView = view2.extent.expand(1.2);
+                view2.goTo(zoomView); 
+          });
 
             apn = result.features[0].attributes.APN;
             apnArr.push(result.features[0].attributes.APN);

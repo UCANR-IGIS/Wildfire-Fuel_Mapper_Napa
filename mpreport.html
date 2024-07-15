@@ -27,7 +27,8 @@
       </div>
       
     </div>
-    <div class="box radioBtn">
+    <!-- <div class="box radioBtn">
+      <h3>Step 1: Select Your Report Type</h3>
       <form id="radForm" class="mapType">
         <label class="radio-inline">
           <input type="radio" name="optradio" value="single" checked>Single Parcel
@@ -39,39 +40,76 @@
           <input type="radio" name="optradio" value="water">Watershed/FSC
         </label>
       </form>
-    </div>
+      <div>
+        <p class="indent">Select 'Single Parcel' for a one parcel report with maps (very small parcels are not available), Multi Parcel for a multiple parcel report with maps, and Watershed/FSC for a report with maps for an entire watershed.</p>
+      </div>
+    </div> -->
     <div class="box content" id="viewDiv"></div>
     <div class="box content" id="viewDiv2" style="display: none"></div>
     <div class="box content" id="viewDiv3" style="display: none"></div>
     <div class="box sidebar scrollbar" id="scroll1" style="overflow-y: auto">
       <div id="accordion2">
-        <h3 id="Sec2">Step 1: Select Your Parcel(s)</h3>
+        <h3>Step 1: Select Your Report Type</h3>
+        <div>
+      <form id="radForm" class="mapType">
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="single" checked>Single Parcel
+        </label>
+        <label class="radio-inline">
+          <input id="mpRad" type="radio" name="optradio" value="multi">Multi Parcel
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="water">Watershed/FSC
+        </label>
+      </form>
+      
+        <p class="indent">Select 'Single Parcel' for a one parcel report with maps (very small parcels are not available), Multi Parcel for a multiple parcel report with maps, and Watershed/FSC for a report with maps for an entire watershed.</p>
+      </div>
+        <h3 id="Sec2">Step 2: Select Your Parcel(s)</h3>
         <div>
           <p class="indent">Add the Address or APN of the parcel of interest in the search bar
             OR Navigate to the parcel (use the +/- buttons to zoom, and click and drag to move the map), select your parcel
             </p>
 
         </div>
-        <h3 id="Sec3">Step 2: Download Your Map</h3>
+        <h3 id="Sec3">Step 3: Download Your Map</h3>
         <div id="vegDetail" class="vegDetail scrollbar">
           <p class="indent">Click on the download icon to get your custom map</p>
           
         </div>
 
-        <h3 id="Sec4">Step 3: Get Information</h3>
+        <h3 id="Sec4">Step 4: Get Information</h3>
         <div id="fuel" class="fuel scrollbar indent">
           <p>Go to the <a href="resources.html">Resources Page</a> to get information on Service Providers and Funding Opportunities for your fuels management project.</p>
         </div>
+        <h3 id="Sec1">Step 2: Select Your Parcel(s)</h3>
+          <div>
+            <p class="indent">Navigate to your parcels of interest on the map (use the +/- buttons to zoom, and click and drag to move the map) and click to select or use the search bar to select by address or APN. Multiple parcels may be selected. If you select multiple parcels, only select parcels that are next to or near each other.</p>  
+            <p class="indent">Based on your selected parcels, you will receive a Microsoft word report that includes information on your parcels in the context of fuels and wildfire, with associated PDF maps that show fuels, vegetation, and other landscape characteristics.</p>
+            <p class="indent" id="apnText"></p>
+            <div class='divButton' id="resetSelect">Reset Parcel Selection</div>
+
+          </div>
+          <h3 id="Sec6">Step 3: Select Your Maps</h3>
+          <div id="vegDetail" class="vegDetail scrollbar">
+            <p class="indent">Select the maps you would like for the report.</p>
+            <ul id="mapList" class="list-group indent">
+
+            </ul>
+          </div>
+
+          <h3 id="Sec5">Step 4: Generate A Fuel Treatment Report</h3>
+          <div id="fuel2" class="fuel scrollbar indent">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter email"><br>
+            <p>Click "Generate Report". You will receive an email with links to the Microsoft Word report and associated PDF maps. Go to the <a href="resources.html">Resources Page</a> to get information on Service Providers and Funding Opportunities for your fuels management project.</p>
+            <div class='divButton' id='report' date-theme="css/print.css">Generate Report</div>
+          </div>
       </div>
     </div>
-    <div class="box sidebar scrollbar" id="scroll2" style="overflow-y: auto; display: none">
+    <!-- <div class="box sidebar scrollbar" id="scroll2" style="overflow-y: auto; display: none">
       <div class="parcel">
-        <!--<h2 class="indent">Fuel Treatment Report</h2>
-                    <p class="indent" id="apnText"></p>
-                    <p class="indent" id="areaText"></p>
-                    <p class="indent" id="wsText"></p><br/>
-                </div> -->
-
         <div id="accordion">
           <h3 id="Sec1">Step 1: Select Your Parcel(s)</h3>
           <div>
@@ -99,7 +137,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="box footer"><span style="float: right; padding-right: 10px">Tool created by <a href="https://ucanr.edu"
           target="_blank">UCANR</a>, <a href="https://igis.ucanr.edu" target="_blank">IGIS</a></span></span></div>
     <div class="modal fade" id="loadModal" tabindex="-1" role="dialog" aria-labelledby="loadModalLabel"
