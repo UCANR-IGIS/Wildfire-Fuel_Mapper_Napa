@@ -46,7 +46,6 @@ $(document).ready(function () {
         parcelURL = 'https://services.arcgis.com/0xnwbwUttaTjns4i/ArcGIS/rest/services/SonomaBaseData/FeatureServer'
         webmapID1 = '10553bd512be4a41af9ca4f18378a2f6'
         webmapID2 = '46aa11afd9d7477d9f39ed059b5d88d0'
-        $('#mpRad').attr("disabled",true);
     }
     if (county == 'Napa') {
         $('#mapList').append(napaMaps)
