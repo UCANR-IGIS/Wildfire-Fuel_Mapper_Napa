@@ -106,6 +106,9 @@
             <p>Click "Generate Report". You will receive an email with links to the Microsoft Word report and associated PDF maps. Go to the <a href="resources.html">Resources Page</a> to get information on Service Providers and Funding Opportunities for your fuels management project.</p>
             <div class='divButton' id='report' date-theme="css/print.css">Generate Report</div>
           </div>
+         
+        </div>
+        <div id="infoDiv" class="indent">
       </div>
     </div>
     <!-- <div class="box sidebar scrollbar" id="scroll2" style="overflow-y: auto; display: none">
@@ -150,6 +153,24 @@
           <div id="loadBody" class="modal-body">
             Thank you for submitting your report request. You will receive an email with a link to the
             PDF within 5-10 minutes.
+          </div>
+          <div id="loadFoot" class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="loadClose" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="errModal" tabindex="-1" role="dialog" aria-labelledby="errModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errModalLabel"></h5>
+          </div>
+          <div id="loadBody" class="modal-body">
+            No parcel found at selected address. Please try a different address, or enter your parcel number directly.
           </div>
           <div id="loadFoot" class="modal-footer">
             <button type="button" class="btn btn-secondary" id="loadClose" data-dismiss="modal">

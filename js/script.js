@@ -57,6 +57,7 @@ $(document).ready(function () {
     }
     if (county == 'Alameda') {
         $('#mapList').append(alccMaps)
+        $('#infoDiv').append('<p>For live webmaps that include many of the datasets displayed in the PDF maps, visit this <a href="https://fuelsmapping.com/alcc_risk_webapp" target="_blank">Risk/Hazard WebApp</a>, this <a href="https://fuelsmapping.com/alcc_risk_story" target="_blank">Risk/Hazard story map</a>, and this <a href="https://experience.arcgis.com/experience/99b6b77a7f104071bc253ea1bb7acd04/" target="_blank">4-Pane Viewer</a>. For GIS users, download many of these datasets at <a href="https://pacificvegmap.org" target="_blank">Pacific Veg Map</a>.</p>')
         $("#fuel").append("<p><a href='county_IDX.html?id=" + county + "'>Return</a> to main fuel mapper page for " + county + " County</p>")
         $("#fuel2").append("<p><a href='county_IDX.html?id=" + county + "'>Return</a> to main fuel mapper page for " + county + " County</p>")
         parcelURL = 'https://services.arcgis.com/0xnwbwUttaTjns4i/arcgis/rest/services/ALCC_Parcels/FeatureServer'
@@ -66,6 +67,7 @@ $(document).ready(function () {
     if (county == 'Contra%20costa') {
         county = 'Contra Costa'
         $('#mapList').append(alccMaps)
+        $('#infoDiv').append('<p>For live webmaps that include many of the datasets displayed in the PDF maps, visit this <a href="https://fuelsmapping.com/alcc_risk_webapp" target="_blank">Risk/Hazard WebApp</a>, this <a href="https://fuelsmapping.com/alcc_risk_story" target="_blank">Risk/Hazard story map</a>, and this <a href="https://experience.arcgis.com/experience/99b6b77a7f104071bc253ea1bb7acd04/" target="_blank">4-Pane Viewer</a>. For GIS users, download many of these datasets at <a href="https://pacificvegmap.org" target="_blank">Pacific Veg Map</a>.</p>')
         $("#fuel").append("<p><a href='county_IDX.html?id=" + county + "'>Return</a> to main fuel mapper page for " + county + " County</p>")
         $("#fuel2").append("<p><a href='county_IDX.html?id=" + county + "'>Return</a> to main fuel mapper page for " + county + " County</p>")
         parcelURL = 'https://services.arcgis.com/0xnwbwUttaTjns4i/arcgis/rest/services/ALCC_Parcels/FeatureServer'
@@ -163,8 +165,10 @@ require([
     "esri/tasks/support/Query",
     "esri/tasks/Geoprocessor",
     "esri/core/watchUtils",
+    "esri/widgets/BasemapGallery",
+    "esri/widgets/Expand",
     "dojo/domReady!"
-], function (Map, WebMap, Graphic, MapView, FeatureLayer, GraphicsLayer, LabelClass, Legend, Search, QueryTask, Query, Geoprocessor, watchUtils) {
+], function (Map, WebMap, Graphic, MapView, FeatureLayer, GraphicsLayer, LabelClass, Legend, Search, QueryTask, Query, Geoprocessor, watchUtils, BasemapGallery, Expand) {
 
     gpTaskUrlSonoma = "https://arcgis.ucanr.edu/server/rest/services/Sonoma/SonomaWFM2/GPServer/SonomaWFM2/";
     gpTaskSonoma = new Geoprocessor(gpTaskUrlSonoma);
@@ -214,23 +218,7 @@ require([
     Counties.maxScale = 250000
     Parcels2.minScale = 250000
 
-    var searchWidget = new Search({
-        view: view2,
-        allPlaceholder: "Search Address or APN (xxx-xxx-xxx)",
-        sources: [{
-            layer: Parcels2,
-            searchFields: ["APN"],
-            displayField: "APN",
-            exactMatch: false,
-            outFields: ["APN"],
-            name: "Parcels",
-            placeholder: "example: 139-100-014"
-        }]
-    });
-
-    var searchWidget2 = new Search({
-        view: view
-    });
+    
 
     Parcels2.renderer = {
         type: "simple", // autocasts as new SimpleRenderer()
@@ -271,6 +259,8 @@ require([
         }
     });
 
+    
+
     view = new MapView({
         container: "viewDiv",
 
@@ -303,6 +293,20 @@ require([
         }
     });
 
+    const searchWidget = new Search({
+        view: view2,
+        allPlaceholder: "Search Address or APN (xxx-xxx-xxx)",
+        sources: [{
+            layer: Parcels2,
+            searchFields: ["APN"],
+            displayField: "APN",
+            exactMatch: false,
+            outFields: ["APN"],
+            name: "Parcels",
+            placeholder: "example: 139-100-014"
+        }]
+    });
+
     view2.map.add(Counties)
     view2.map.add(Parcels2)
     view2.map.add(graphicsFM)
@@ -313,13 +317,59 @@ require([
         index: 0
     });
 
-    view.ui.add(searchWidget2, {
-        position: "top-left",
-        index: 0
-    });
+    
+    const basemapGallery = new BasemapGallery({
+        view: view
+      });
+     
+
+      const basemapGallery2 = new BasemapGallery({
+        view: view2
+      });
+      
+      const expandForBasemaps = new Expand({
+        view: view,
+        content: basemapGallery,
+        expanded: false
+      });
+    
+      view.ui.add([expandForBasemaps], "top-right");
+
+      const expandForBasemaps2 = new Expand({
+        view: view2,
+        content: basemapGallery2,
+        expanded: false
+      });
+    
+      view2.ui.add([expandForBasemaps2], "top-right");
 
 
-
+    view.when(function() {
+        const singleParcel = webmap.allLayers.find(function(layer) {
+            return layer.title === "Parcel Maps";
+           })
+           const searchWidget2 = new Search({
+            view: view,
+            allPlaceholder: "Search Address or APN (xxx-xxx-xxx)",
+            sources: [{
+                layer: singleParcel,
+                searchFields: ["APN"],
+                displayField: "APN",
+                exactMatch: false,
+                outFields: ["APN"],
+                name: "Parcels",
+                placeholder: "example: 139-100-014"
+            }]
+        });
+        view.ui.add(searchWidget2, {
+            position: "top-left",
+            index: 0
+        });
+    
+        searchWidget2.on("select-result", function (event) {
+            view.goTo(event.result.extent.expand(1.2));
+        });
+    })
 
     view2.when(function () {
 
@@ -331,6 +381,7 @@ require([
         view2.ui.add(legend2, "top-right");
 
         searchWidget.on("select-result", function (event) {
+            view2.goTo(event.result.extent.expand(1.2));
             searchCoordinates(event);
         });
 
@@ -525,7 +576,9 @@ require([
         parcelQuery.geometry = event;
         parcelQuery.spatialRelationship = "intersects";
         parcelQueryTask.execute(parcelQuery).then(function (result) {
-
+            if (result.features.length == 0) {
+                $('#errModal').modal('show');
+            } else {
             var graphic = new Graphic({
                 attributes: result.features[0].attributes,
                 geometry: result.features[0].geometry,
@@ -549,7 +602,7 @@ require([
                 zoomView = view2.extent.expand(1.2);
                 view2.goTo(zoomView); 
           });
-
+        }
             apn = result.features[0].attributes.APN;
             apnArr.push(result.features[0].attributes.APN);
             acres = result.features[0].attributes.Acres;

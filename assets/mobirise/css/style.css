@@ -2155,3 +2155,21 @@ html {
     font-size: 1.5vh !important;
     padding: 5px 10px
 }
+
+.hpBtn {
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px
+}
+
+@media (max-width: 768px) {
+    .hpBtnMargin{
+        margin-top: 75px !important
+    }
+}
+
+.hpBtn > .mbr-buttons {
+    margin: 0;
+
+}
