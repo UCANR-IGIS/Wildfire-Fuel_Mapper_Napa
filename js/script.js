@@ -8,6 +8,7 @@ $(function () {
 });
 
 $(document).ready(function () {
+    $('#surveyModal').modal('show');
 
     county = toTitleCase(getQueryVariable("id"));
 

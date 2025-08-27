@@ -18,6 +18,17 @@
   <link id="theme" rel="stylesheet" href="">
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J50XHW6NLX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J50XHW6NLX');
+</script>
+
+
 <body>
   <div class="wrapper">
     <div class="box header">
@@ -171,6 +182,25 @@
           </div>
           <div id="loadBody" class="modal-body">
             No parcel found at selected address. Please try a different address, or enter your parcel number directly.
+          </div>
+          <div id="loadFoot" class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="loadClose" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="surveyModal" tabindex="-1" role="dialog" aria-labelledby="surveyModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="surveyModalLabel">User Survey</h5>
+          </div>
+          <div id="loadBody" class="modal-body">
+            <p>We see that you are downloading a WFM custom map, that's great. We would appreciate it if you took 5-10 minutes to complete our short survey and tell us more about how you use the Wildfire Fuel Mapper tool.</p>
+            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdGYS0xTMl_Fo9kNpLAkb43XXqFQgeUFyBiapMHjMYpbS0Rww/viewform" target="_blank">Click here to take the survey</a></p>
           </div>
           <div id="loadFoot" class="modal-footer">
             <button type="button" class="btn btn-secondary" id="loadClose" data-dismiss="modal">
