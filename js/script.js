@@ -171,14 +171,17 @@ require([
     "dojo/domReady!"
 ], function (Map, WebMap, Graphic, MapView, FeatureLayer, GraphicsLayer, LabelClass, Legend, Search, QueryTask, Query, Geoprocessor, watchUtils, BasemapGallery, Expand) {
 
-    gpTaskUrlSonoma = "https://arcgis.ucanr.edu/server/rest/services/Sonoma/SonomaWFM2/GPServer/SonomaWFM2/";
+    /*gpTaskUrlSonoma = "https://arcgis.ucanr.edu/server/rest/services/Sonoma/SonomaWFM2/GPServer/SonomaWFM2/";
     gpTaskSonoma = new Geoprocessor(gpTaskUrlSonoma);
 
     gpTaskUrlNapa = "https://arcgis.ucanr.edu/server/rest/services/Sonoma/NapaFM/GPServer/NapaFM/";
     gpTaskNapa = new Geoprocessor(gpTaskUrlNapa);
 
     gpTaskUrlALCC = "https://arcgis.ucanr.edu/server/rest/services/Sonoma/ALCCFM/GPServer/ALCCFM/";
-    gpTaskALCC = new Geoprocessor(gpTaskUrlALCC);
+    gpTaskALCC = new Geoprocessor(gpTaskUrlALCC);*/
+
+    gpTaskUrl = "https://arcgis.ucanr.edu/server/rest/services/UWFM/UnifiedWFM_V3/GPServer/UnifiedWFM/";
+    gpTask = new Geoprocessor(gpTaskUrl);
 
     const labelClass = {
         // autocasts as new LabelClass()
@@ -646,11 +649,12 @@ $('#report').click(function () {
     var params = {
         "APN(s)": apnList2,
         "Email": email,
-        "Map(s)": maps
+        "Map(s)": maps,
+        "County": county
     };
 
     // Setup event handlers.
-    if (county == 'Sonoma') {
+    /*if (county == 'Sonoma') {
         gpTaskSonoma.submitJob(params).then(onTaskComplete, errBack, progTest);
     }
     if (county == 'Napa') {
@@ -658,7 +662,9 @@ $('#report').click(function () {
     }
     if (county == 'Alameda' || county == 'Contra Costa') {
         gpTaskALCC.submitJob(params).then(onTaskComplete, errBack, progTest);
-    }
+    }*/
+
+    gpTask.submitJob(params).then(onTaskComplete, errBack, progTest);
     // Event handler for onJobComplete event
     function onTaskComplete(jobInfo) {
         $('#loadModal').modal('show');
